@@ -203,31 +203,31 @@ export const WashProducts = () => {
   const products = [
     {
       id: 1,
-      name: "Ceramic Shield",
-      image: "/Images/Clean Finish.jpg",
-      description: "Advanced nanotechnology that creates a diamond-hard barrier on your paint.",
-      longDesc: "Our Ceramic Shield is not just a wax—it's a chemical bond. It provides 30 days of extreme hydrophobic protection, high-gloss shine, and UV resistance. It fills microscopic imperfections in your clear coat for a mirror-like finish that repels water and grime instantly."
+      name: "Ceramic Shine",
+      image: "/Products/Ceramic Shine.png",
+      description: "Advanced nanotech for a deep, reflective mirror finish.",
+      longDesc: "Ceramic Shine creates a chemical bond with your clear coat, providing 30 days of extreme hydrophobic protection and a high-gloss brilliance that lasts. It repels water, dust, and UV rays, ensuring your car stays cleaner for longer between washes."
     },
     {
       id: 2,
-      name: "Triple Foam",
-      image: "/Images/inside_the_scrubbers.jpg",
-      description: "Ph-balanced conditioners that penetrate deep into surface grime.",
-      longDesc: "The Triple Foam process uses three distinct cleaning agents that work in horizontal layers. It breaks down road film and organic contaminants without stripping existing protection. Plus, the vibrant colors and cherry scent make it a fan favorite in the tunnel."
+      name: "Extreme Gloss Lava",
+      image: "/Products/Extreme Gloss Lava Polish.png",
+      description: "Infused with lava-like conditioners for maximum surface depth.",
+      longDesc: "This premium lava-infused polish penetrates deep into the clear coat layers to nourish the paint and provide a warm, rich glow. It's the ultimate treatment for restoring the showroom-quality depth and vibrant color to any vehicle finish."
     },
     {
       id: 3,
-      name: "Tire Shine",
-      image: "/Images/Clean_lambo.jpg",
-      description: "Precision-applied gloss that protects and beautifies your rubber.",
-      longDesc: "Our automated tire shine system uses rotating brushes to apply a non-sling, water-based dressing. It protects against sidewall cracking and UV damage while leaving a deep, 'wet' look that lasts for weeks. No mess, no overspray, just perfect tires."
+      name: "Ceramic Gloss",
+      image: "/Products/Geramic Gloss.png",
+      description: "A hybrid layering agent that bridges the gap between wax and ceramic.",
+      longDesc: "Ceramic Gloss is our specialized hybrid treatment that combines the ease of a spray polish with the durability of a ceramic coating. It delivers an immediate 'pop' in shine while building a resilient layer of protection against environmental contaminants."
     },
     {
       id: 4,
-      name: "Wheel Brightener",
-      image: "/Images/unnamed-9.jpg",
-      description: "Industrial strength busters for tough brake dust and road tar.",
-      longDesc: "Our Wheel Brightener is safe for all factory finishes but tough on brake dust. It uses a high-cling formula that dwells on the wheel surface, dissolving metallic deposits and carbon dust. We follow it with a high-pressure rinse that leaves your rims looking brand new."
+      name: "Quartz Power",
+      image: "/Products/Quartz.png",
+      description: "Mineral-rich sealant that hardens into a glass-like shell.",
+      longDesc: "Infused with silica quartz, this sealant hardens into a durable, glass-like shell over your vehicle. It's designed for drivers who want the highest level of resistance against light surface scratches and the most intense water-beading performance available today."
     }
   ];
 
@@ -235,48 +235,49 @@ export const WashProducts = () => {
     <section className="py-24 bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12">
-          <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter">
+          <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter text-white">
             WASH <span className="text-racing-blue">PRODUCTS</span>
           </h2>
           <p className="text-white/50 font-bold uppercase tracking-widest mt-2">The fuel for your vehicle's shine.</p>
         </div>
 
-        <div className="relative h-[400px] flex gap-4">
+        <div className="relative h-[450px] flex gap-4">
           {products.map((product) => {
             const isActive = activeId === product.id;
             return (
               <motion.div
                 key={product.id}
-                onMouseDown={() => setActiveId(product.id)}
-                onMouseUp={() => setActiveId(null)}
-                // onMouseLeave={() => setActiveId(null)} // Uncomment if you want it to close when mouse leaves
+                onMouseEnter={() => setActiveId(product.id)}
+                onMouseLeave={() => setActiveId(null)}
                 layout
                 initial={false}
                 animate={{
                   width: isActive ? '100%' : '25%',
-                  x: isActive ? (activeId === 1 ? 0 : activeId === 2 ? -312 : activeId === 3 ? -624 : -936) : 0,
+                  x: isActive ? (product.id === 1 ? 0 : product.id === 2 ? -312 : product.id === 3 ? -624 : -936) : 0,
                   zIndex: isActive ? 50 : 10
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className={`relative h-full rounded-3xl overflow-hidden border-2 cursor-pointer transition-colors duration-300 ${isActive ? 'border-neon-green' : 'border-white/10 hover:border-racing-blue'
+                className={`relative h-full rounded-3xl overflow-hidden border-2 cursor-pointer transition-colors duration-300 ${isActive ? 'border-neon-green bg-black/40' : 'border-white/10 hover:border-racing-blue bg-white/5'
                   }`}
               >
-                {/* Background Image */}
-                <div className="absolute inset-0 z-0">
-                  <img src={product.image} className="w-full h-full object-cover opacity-60" alt={product.name} />
-                  <div className="absolute inset-0 bg-black/40" />
+                {/* Background Image / Product Image Area */}
+                <div className={`absolute inset-0 z-0 transition-all duration-500 ${isActive ? 'opacity-20' : 'opacity-60'}`}>
+                  <img src={product.image} className="w-full h-full object-contain p-8" alt={product.name} />
+                  <div className="absolute inset-0 bg-black/20" />
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 p-8 h-full flex flex-col">
-                  <h3 className="font-display font-black text-2xl uppercase italic mb-4">{product.name}</h3>
+                <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+                  <div className={`transition-all duration-500 ${isActive ? 'mb-0' : 'mb-4'}`}>
+                    <h3 className="font-display font-black text-2xl uppercase italic text-white">{product.name}</h3>
+                  </div>
 
-                  {/* Small Description (always on or hover) */}
+                  {/* Small Description (only visible when NOT active) */}
                   {!isActive && (
                     <motion.p
                       initial={{ opacity: 0 }}
-                      whileHover={{ opacity: 1 }}
-                      className="text-xs font-bold uppercase tracking-wider text-white/80"
+                      animate={{ opacity: 1 }}
+                      className="text-[10px] font-bold uppercase tracking-wider text-white/60 line-clamp-2"
                     >
                       {product.description}
                     </motion.p>
@@ -287,17 +288,17 @@ export const WashProducts = () => {
                     <motion.div
                       initial={{ opacity: 0, x: 50 }}
                       animate={{ opacity: 1, x: 0 }}
-                      className="mt-4 max-w-2xl"
+                      className="max-w-3xl"
                     >
-                      <p className="text-lg font-medium text-white/90 leading-relaxed mb-6">
+                      <p className="text-xl font-medium text-white/90 leading-relaxed mb-8">
                         {product.longDesc}
                       </p>
                       <div className="flex gap-4">
-                        <div className="px-4 py-2 bg-neon-green/20 border border-neon-green/50 rounded-full text-[10px] font-black uppercase text-neon-green">
-                          Eco-Safe
+                        <div className="px-6 py-2 bg-neon-green text-black rounded-full text-xs font-black uppercase tracking-widest">
+                          Premium Add-on
                         </div>
-                        <div className="px-4 py-2 bg-racing-blue/20 border border-racing-blue/50 rounded-full text-[10px] font-black uppercase text-racing-blue">
-                          Pro-Grade
+                        <div className="px-6 py-2 bg-racing-blue text-white rounded-full text-xs font-black uppercase tracking-widest">
+                          High Performance
                         </div>
                       </div>
                     </motion.div>
@@ -306,8 +307,8 @@ export const WashProducts = () => {
 
                 {/* Vertical Text when compact */}
                 {!isActive && (
-                  <div className="absolute bottom-12 right-6 origin-bottom-right rotate-[-90deg] whitespace-nowrap opacity-20 group-hover:opacity-40 transition-opacity">
-                    <span className="font-display font-black text-4xl uppercase italic">{product.name}</span>
+                  <div className="absolute top-12 left-6 origin-top-left rotate-[90deg] whitespace-nowrap opacity-10">
+                    <span className="font-display font-black text-5xl uppercase italic text-white">{product.name}</span>
                   </div>
                 )}
               </motion.div>
