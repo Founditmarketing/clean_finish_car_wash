@@ -257,12 +257,12 @@ export const WashProducts = () => {
                   <motion.div
                     animate={{
                       opacity: hoveredId !== null && !isActive ? 0 : 1,
-                      scale: isActive ? 1.1 : 1,
-                      x: isActive ? -(idx * 280) : 0, // Slide to left logic
+                      scale: isActive ? 1.2 : 1,
+                      x: isActive ? -(idx * 320) : 0, // Slide to left logic - adjusted for larger icons
                       zIndex: isActive ? 50 : 10
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="relative w-48 h-64 flex flex-col items-center justify-center pointer-events-auto"
+                    className="relative w-64 h-96 flex flex-col items-center justify-center pointer-events-auto"
                   >
                     <img
                       src={product.image}
