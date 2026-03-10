@@ -72,7 +72,7 @@ export const Hero = () => {
             <Link to="/menu">
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                className="glass text-white px-10 py-5 rounded-xl font-display font-black uppercase tracking-widest border border-neon-green/30"
+                className="btn-glint glass text-white px-10 py-5 rounded-xl font-display font-black uppercase tracking-widest border border-neon-green/30"
               >
                 View Wash Menu
               </motion.button>

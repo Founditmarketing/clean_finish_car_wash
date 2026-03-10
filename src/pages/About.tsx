@@ -231,7 +231,7 @@ export const About = () => {
               </button>
             </Link>
             <Link to="/menu">
-              <button className="glass text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest border border-neon-green/30 hover:bg-white/5 transition-colors w-full sm:w-auto">
+              <button className="btn-glint glass text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest border border-neon-green/30 hover:bg-white/5 transition-colors w-full sm:w-auto">
                 View Wash Menu
               </button>
             </Link>
