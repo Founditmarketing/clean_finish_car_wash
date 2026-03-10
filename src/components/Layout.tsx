@@ -56,7 +56,7 @@ export const Navbar = () => {
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-deep-black pt-20 pb-10 overflow-hidden border-t-4 border-transparent bg-gradient-to-r from-racing-blue via-neon-green to-racing-blue [border-image:linear-gradient(to_right,#0066ff,#39ff14,#0066ff)_1]">
+    <footer className="relative bg-black pt-20 pb-10 overflow-hidden border-t-4 border-transparent bg-gradient-to-r from-racing-blue via-neon-green to-racing-blue [border-image:linear-gradient(to_right,#0066ff,#39ff14,#0066ff)_1]">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="space-y-6">
           <Link to="/" className="flex items-center gap-2">
@@ -65,13 +65,10 @@ export const Footer = () => {
               CLEAN<span className="text-neon-green">FINISH</span>
             </span>
           </Link>
-          <p className="text-white/80 text-sm leading-relaxed font-medium">
+          <p className="text-white/90 text-sm leading-relaxed font-bold">
             Providing the ultimate customer experience in Pineville, LA. We serve God by serving others with honesty and integrity.
           </p>
           <div className="flex gap-4">
-            <a href="https://www.facebook.com/cleanfinishcarwashLA" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-racing-blue transition-colors group">
-              <Facebook size={18} className="group-hover:text-white transition-colors" />
-            </a>
             <a href="https://www.facebook.com/cleanfinishcarwashLA" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-racing-blue transition-colors group">
               <Facebook size={18} className="group-hover:text-white transition-colors" />
             </a>
@@ -101,9 +98,11 @@ export const Footer = () => {
               <Phone size={18} className="text-neon-green shrink-0" />
               <span>(318) 704-0162</span>
             </li>
-            <li className="flex items-center gap-3">
-              <Mail size={18} className="text-racing-blue shrink-0" />
-              <span>cleanfinishcarwash@gmail.com</span>
+            <li>
+              <a href="mailto:cleanfinishcarwash@gmail.com" className="flex items-center gap-3 hover:text-racing-blue transition-colors">
+                <Mail size={18} className="text-racing-blue shrink-0" />
+                <span>cleanfinishcarwash@gmail.com</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -122,15 +121,14 @@ export const Footer = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div >
 
-      <div className="max-w-7xl mx-auto px-6 mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold text-white/30 uppercase tracking-widest">
+      <div className="max-w-7xl mx-auto px-6 mt-20 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold text-white/50 uppercase tracking-widest">
         <p>© 2026 CLEAN FINISH CAR WASH. ALL RIGHTS RESERVED.</p>
         <div className="flex gap-8">
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms">Terms of Service</Link>
+          <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };

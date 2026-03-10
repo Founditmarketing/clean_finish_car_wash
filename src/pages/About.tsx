@@ -7,18 +7,18 @@ export const About = () => {
   return (
     <div className="pt-20 bg-black">
       {/* Hero Lore Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden border-b-2 border-white/5">
         <div className="absolute inset-0 z-0">
           <motion.img
-            initial={{ scale: 1.1 }}
+            initial={{ scale: 1.05 }}
             animate={{ scale: 1 }}
             transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
             src="/Images/TheCarWash.jpg"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
             alt="Clean Finish Facility"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
           <div className="absolute inset-0 checkered-bg opacity-10 pointer-events-none" />
         </div>
 
