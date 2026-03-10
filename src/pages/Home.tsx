@@ -416,12 +416,14 @@ export const WashMenu = () => {
                   ))}
                 </ul>
 
-                <button className={`w-full py-4 rounded-xl font-display font-black uppercase tracking-widest text-xs transition-all ${pkg.featured
-                  ? 'bg-racing-blue text-white shadow-lg shadow-racing-blue/40'
-                  : 'glass text-white hover:bg-white/20 border border-racing-blue/20'
-                  }`}>
-                  Select Pack
-                </button>
+                <Link to="/contact">
+                  <button className={`w-full py-4 rounded-xl font-display font-black uppercase tracking-widest text-xs transition-all ${pkg.featured
+                    ? 'bg-racing-blue text-white shadow-lg shadow-racing-blue/40'
+                    : 'glass text-white hover:bg-white/20 border border-racing-blue/20'
+                    }`}>
+                    Select Pack
+                  </button>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -433,9 +435,11 @@ export const WashMenu = () => {
               <h4 className="font-display font-black text-2xl uppercase italic mb-2">Unlimited Memberships</h4>
               <p className="text-white/50 text-sm">Join the Pit Crew and wash all month long starting at <span className="text-white font-bold">$13.99/mo</span>.</p>
             </div>
-            <button className="bg-neon-green text-black px-10 py-4 rounded-xl font-display font-black uppercase tracking-widest shadow-lg shadow-neon-green/20">
-              Join Pit Crew
-            </button>
+            <Link to="/contact">
+              <button className="bg-neon-green text-black px-10 py-4 rounded-xl font-display font-black uppercase tracking-widest shadow-lg shadow-neon-green/20">
+                Join Pit Crew
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -506,6 +510,21 @@ export const CeramicShield = () => {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="mt-16"
+            >
+              <Link to="/contact">
+                <button className="bg-racing-blue text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/40 flex items-center gap-4 group w-full sm:w-auto justify-center">
+                  Protect Your Ride
+                  <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                </button>
+              </Link>
+            </motion.div>
 
           </motion.div>
         </div>

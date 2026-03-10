@@ -6,26 +6,26 @@ import { Link } from 'react-router-dom';
 export const blogPosts = [
   {
     id: 1,
-    title: "How Ceramic Coating Changes the Game",
+    title: "Inside the Tunnel: The Science of Shine",
     category: "Wash Tech",
     date: "MAR 10, 2026",
     author: "Pit Boss",
-    images: ["/Blog Images/nascar.png", "/Blog Images/Auto Carwash.png", "/Blog Images/Auto Carwash (2).png"],
+    images: ["/Blog Images/suddy BMW.png", "/Blog Images/manual tire spraying.png", "/Blog Images/soaped up exhaust pipe.png"],
     sections: [
       {
-        text: "Ceramic coating isn't just a wax; it's a chemical evolution for your vehicle's surface. Unlike traditional polymers that simply sit on top of the paint, our Nano-Ceramic technology creates a permanent or semi-permanent bond with the clear coat at a molecular level. This forms an impenetrable, glass-like barrier that shields your car from the harsh Louisiana environment. When you look at a car finished with our Ceramic Shield, like the high-performance machine shown below, you aren't just seeing a clean car—you're seeing a surface that has been reinforced against the elements.",
-        image: "/Blog Images/nascar.png"
+        text: "Achieving a world-class automotive finish isn't just about water and soap; it's a complex battle of chemistry, physics, and mechanical precision. At Clean Finish, we treat every vehicle that enters our tunnel like a high-performance machine ready for the winner's circle. The process begins with our signature pre-soak foam, a pH-balanced solution designed to penetrate the microscopic layer of road film that blankets your car's paint. This film, composed of organic matter, industrial fallout, and mineral deposits, requires a specific chemical trigger to release its grip without the need for aggressive friction that can cause swirl marks. As you can see on the BMW below, our rich, active foam 'lifts' these contaminants, suspending them in a protective cushion before the first micro-fiber makes contact.",
+        image: "/Blog Images/suddy BMW.png"
       },
       {
-        text: "The primary benefit that drivers notice immediately is extreme hydrophobicity. Water beads off the surface at angles as low as 10 degrees, which creates a 'self-cleaning' effect. As rain or wash water rolls off, it takes dirt, road grime, and industrial fallout with it. This property is vital in Pineville, where sudden afternoon showers can often turn a dusty car into a muddy one. By applying this protective layer, you ensure that your vehicle stays cleaner for significantly longer intervals between professional detailing sessions. Our automated tunnel, pictured here, is specifically calibrated to preserve and enhance this ceramic layer during every pass.",
-        image: "/Blog Images/Auto Carwash.png"
+        text: "One of the most critical aspects of Pineville's environment is the high concentration of iron particles and red clay dust. These abrasive elements can act like sandpaper if not handled with extreme care. Our multi-stage decontamination process includes specialized tire and wheel high-pressure systems that target the most concentrated areas of brake dust. Brake dust is essentially tiny iron filings that, when combined with heat and moisture, can chemically bond to your wheels, causing permanent etching. By utilizing targeted manual intervention and calibrated sprayers, we ensure that every crevice of your 'running gear' is neutralized. This precision ensures that the finish remains pristine and protected against the corrosive Louisiana elements.",
+        image: "/Blog Images/manual tire spraying.png"
       },
       {
-        text: "Beyond the visual brilliance and ease of maintenance, ceramic coating provides essential UV protection. The sun's intense rays can cause oxidation and fading of the pigment in your clear coat over time, leading to a dull, weathered appearance that devalues your investment. Our Formula-X coating contains high-grade UV inhibitors that reflect these rays, keeping your paint looking as deep and vibrant as the day it rolled off the assembly line. It also provides a level of chemical resistance against bird droppings and tree sap, which can etch into unprotected paint within hours. Investing in ceramic coating is about more than just a showroom shine; it's about preserving the structural integrity and resale value of your vehicle for years to come.",
-        image: "/Blog Images/Auto Carwash (2).png"
+        text: "The science continues even as the vehicle approaches the end of the tunnel. We utilize an advanced reverse-osmosis water filtration system to ensure a spot-free rinse. Standard tap water contains minerals like calcium and magnesium which, if left to dry, form hard-water spots that are difficult to remove and can damage the paint over time. Our system strips these minerals away, leaving only pure H2O. We then apply a high-grade polymer sealant that works at the molecular level to fill any imperfections in the clear coat, creating a perfectly flat surface. This smoothness is what produces the deep, reflective gloss shown on this exhaust assembly—the final touch in our pursuit of the ultimate clean.",
+        image: "/Blog Images/soaped up exhaust pipe.png"
       },
       {
-        text: "Finally, the depth of gloss achieved by a professional ceramic application is unmatched by any traditional wax or sealant. The nano-particles fill the microscopic pores of your paintwork, creating a perfectly smooth surface that reflects light with incredible clarity. This creates that 'wet look' that car enthusiasts crave. At Clean Finish, we don't just apply a product; we execute a precision application process that ensures every inch of your vehicle is encased in this high-tech armor. Whether you're driving a daily commuter or a track-ready beast, ceramic coating is the ultimate upgrade for those who refuse to settle for anything less than perfection."
+        text: "Finally, our high-velocity drying system uses a combination of heated air and precision-angled nozzles to strip every drop of water from the surface before it has a chance to evaporate. This mechanical drying process is far superior to traditional hand-drying, as it eliminates the risk of cross-contamination from dirty cloths and ensures that water is cleared from hidden areas like mirrors and door handles. The result is a finish that doesn't just look good in the driveway—it's a finish that is scientifically protected and engineered to stay cleaner for longer. At Clean Finish, we don't just wash cars; we apply the science of shine to every vehicle that takes a lap in our tunnel. Experience the difference of a precision-engineered clean today."
       }
     ]
   },

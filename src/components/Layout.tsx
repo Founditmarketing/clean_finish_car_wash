@@ -39,13 +39,15 @@ export const Navbar = () => {
           ))}
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-neon-green text-black px-6 py-2 rounded-full font-display font-black text-xs uppercase tracking-tighter shadow-lg shadow-neon-green/40"
-        >
-          Join the Pit Crew
-        </motion.button>
+        <Link to="/contact">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-neon-green text-black px-6 py-2 rounded-full font-display font-black text-xs uppercase tracking-tighter shadow-lg shadow-neon-green/40"
+          >
+            Join the Pit Crew
+          </motion.button>
+        </Link>
       </div>
     </nav>
   );
@@ -71,9 +73,6 @@ export const Footer = () => {
             </a>
             <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-neon-green transition-colors group">
               <Instagram size={18} className="group-hover:text-black transition-colors" />
-            </a>
-            <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-racing-blue transition-colors group">
-              <Twitter size={18} className="group-hover:text-white transition-colors" />
             </a>
           </div>
         </div>

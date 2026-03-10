@@ -8,6 +8,16 @@ export const BlogPostDetail = () => {
     const { id } = useParams();
     const post = blogPosts.find(p => p.id === Number(id));
 
+    const handleShare = (platform: string) => {
+        const url = window.location.href;
+        if (platform === 'Copy Link') {
+            navigator.clipboard.writeText(url);
+            alert('Link copied to pit crew clipboard!');
+        } else if (platform === 'Facebook') {
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+    };
+
     if (!post) {
         return (
             <div className="min-h-screen bg-black flex flex-col items-center justify-center p-6 text-center">
@@ -119,13 +129,24 @@ export const BlogPostDetail = () => {
                             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Fuel The Conversation</span>
                             <div className="flex gap-2">
                                 {['Facebook', 'Copy Link'].map(platform => (
-                                    <button key={platform} className="px-4 py-2 glass rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-white/10">
+                                    <button
+                                        key={platform}
+                                        onClick={() => handleShare(platform)}
+                                        className="px-4 py-2 glass rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition-colors active:scale-95"
+                                    >
                                         {platform}
                                     </button>
                                 ))}
                             </div>
                         </div>
-                        <button className="flex items-center gap-3 text-neon-green font-display font-black uppercase tracking-[0.2em] text-sm group">
+                        <button
+                            onClick={() => {
+                                const currentIndex = blogPosts.findIndex(p => p.id === post.id);
+                                const nextIndex = (currentIndex + 1) % blogPosts.length;
+                                window.location.href = `/pitstop/${blogPosts[nextIndex].id}`;
+                            }}
+                            className="flex items-center gap-3 text-neon-green font-display font-black uppercase tracking-[0.2em] text-sm group"
+                        >
                             Next Article <ChevronRight className="group-hover:translate-x-2 transition-transform" />
                         </button>
                     </div>

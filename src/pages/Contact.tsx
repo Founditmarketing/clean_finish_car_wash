@@ -108,20 +108,17 @@ export const Contact = () => {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="h-64 rounded-3xl overflow-hidden relative grayscale border-2 border-white/10 shadow-[0_0_30px_rgba(0,102,255,0.1)]">
-                <img
-                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000"
-                  alt="Map Placeholder"
-                  className="w-full h-full object-cover opacity-50"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="glass px-8 py-4 rounded-full flex items-center gap-3 border border-neon-green/30">
-                    <MapPin className="text-neon-green" />
-                    <span className="font-display font-black uppercase text-xs tracking-widest">Open in Maps</span>
-                  </div>
-                </div>
+              {/* Live Google Map */}
+              <div className="h-80 rounded-3xl overflow-hidden relative border-2 border-white/10 shadow-[0_0_30px_rgba(0,102,255,0.1)]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4033.6378495346903!2d-92.4091776485384!3d31.332531590350147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86254ddd03dca943%3A0x8f2f909cabeb8e5b!2sClean%20Finish%20Car%20Wash!5e1!3m2!1sen!2sus!4v1773171155994!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Heart, Shield, Users, Star, Trophy, Zap, CheckCircle2, Droplets, Sparkles, Clock, MapPin, ThumbsUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const About = () => {
   return (
@@ -229,12 +230,16 @@ export const About = () => {
             Experience the Clean Finish difference today. Whether it's a quick sprint or a championship shine, we're ready for you.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-racing-blue text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/20 hover:scale-105 transition-transform">
-              Find Our Track
-            </button>
-            <button className="glass text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest border border-neon-green/30 hover:bg-white/5 transition-colors">
-              View Wash Menu
-            </button>
+            <Link to="/contact">
+              <button className="bg-racing-blue text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/20 hover:scale-105 transition-transform w-full sm:w-auto">
+                Find Our Track
+              </button>
+            </Link>
+            <Link to="/menu">
+              <button className="glass text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest border border-neon-green/30 hover:bg-white/5 transition-colors w-full sm:w-auto">
+                View Wash Menu
+              </button>
+            </Link>
           </div>
         </div>
       </section>
