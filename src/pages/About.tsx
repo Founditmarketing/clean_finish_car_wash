@@ -95,11 +95,10 @@ export const About = () => {
             ))}
           </div>
         </div>
-    </div>
-      </section >
+      </section>
 
-  {/* Why Trust Us Section */ }
-  < section className = "py-32 bg-deep-black relative" >
+      {/* Why Trust Us Section */}
+      < section className="py-32 bg-deep-black relative" >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -184,39 +183,39 @@ export const About = () => {
         </div>
       </section >
 
-  {/* Stats Section */ }
-  < section className = "py-24 bg-black border-y border-white/5" >
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-        {[
-          { label: "Cars Washed", value: "250K+", color: "text-racing-blue", icon: <Zap size={20} /> },
-          { label: "Happy Members", value: "5,000+", color: "text-neon-green", icon: <Users size={20} /> },
-          { label: "Gallons Saved", value: "1.2M", color: "text-racing-blue", icon: <Droplets size={20} /> },
-          { label: "Police Washes", value: "FREE", color: "text-neon-green", icon: <Shield size={20} /> }
-        ].map((stat, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="text-center space-y-4"
-          >
-            <div className={`mx-auto w-12 h-12 rounded-full bg-white/5 flex items-center justify-center ${stat.color} opacity-50`}>
-              {stat.icon}
-            </div>
-            <div>
-              <div className={`font-display font-black text-5xl md:text-7xl italic mb-2 ${stat.color} tracking-tighter`}>{stat.value}</div>
-              <div className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30">{stat.label}</div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
+      {/* Stats Section */}
+      < section className="py-24 bg-black border-y border-white/5" >
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+            {[
+              { label: "Cars Washed", value: "250K+", color: "text-racing-blue", icon: <Zap size={20} /> },
+              { label: "Happy Members", value: "5,000+", color: "text-neon-green", icon: <Users size={20} /> },
+              { label: "Gallons Saved", value: "1.2M", color: "text-racing-blue", icon: <Droplets size={20} /> },
+              { label: "Police Washes", value: "FREE", color: "text-neon-green", icon: <Shield size={20} /> }
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center space-y-4"
+              >
+                <div className={`mx-auto w-12 h-12 rounded-full bg-white/5 flex items-center justify-center ${stat.color} opacity-50`}>
+                  {stat.icon}
+                </div>
+                <div>
+                  <div className={`font-display font-black text-5xl md:text-7xl italic mb-2 ${stat.color} tracking-tighter`}>{stat.value}</div>
+                  <div className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30">{stat.label}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section >
 
-  {/* CTA Section */ }
-  < section className = "py-32 bg-deep-black relative overflow-hidden" >
+      {/* CTA Section */}
+      < section className="py-32 bg-deep-black relative overflow-hidden" >
         <div className="absolute inset-0 checkered-bg opacity-5" />
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter mb-8">
