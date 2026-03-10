@@ -34,7 +34,7 @@ export const About = () => {
               <span className="text-xs font-black uppercase tracking-[0.4em] text-racing-blue">Our Heritage</span>
             </div>
 
-            <h1 className="font-display font-black text-6xl md:text-8xl italic uppercase leading-none tracking-tighter mx-auto max-w-3xl">
+            <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl italic uppercase leading-none tracking-tighter mx-auto max-w-3xl">
               <span className="text-racing-blue">ABOUT</span> <span className="text-neon-green">US</span>
             </h1>
             <div className="space-y-6 text-white/70 text-lg leading-relaxed font-medium">
@@ -98,7 +98,7 @@ export const About = () => {
       </section>
 
       {/* Why Trust Us Section */}
-      < section className="py-32 bg-deep-black relative" >
+      < section className="py-20 md:py-32 bg-deep-black relative" >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -215,7 +215,7 @@ export const About = () => {
       </section >
 
       {/* CTA Section */}
-      < section className="py-32 bg-deep-black relative overflow-hidden" >
+      < section className="py-20 md:py-32 bg-deep-black relative overflow-hidden" >
         <div className="absolute inset-0 checkered-bg opacity-5" />
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter mb-8">

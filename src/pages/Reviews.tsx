@@ -48,7 +48,7 @@ const reviewsData = [
 export const Reviews = () => {
     return (
         <div className="pt-20 bg-deep-black min-h-screen">
-            <section className="py-32 relative overflow-hidden">
+            <section className="py-20 md:py-32 relative overflow-hidden">
                 <div className="absolute inset-0 checkered-bg opacity-5 pointer-events-none" />
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10">

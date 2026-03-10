@@ -63,7 +63,7 @@ export const Gallery = () => {
 
   return (
     <div className="pt-20 bg-deep-black">
-      <section className="py-32">
+      <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
             <div>

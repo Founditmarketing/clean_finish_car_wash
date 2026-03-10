@@ -12,7 +12,7 @@ export const Contact = () => {
 
   return (
     <div className="pt-20 bg-black">
-      <section className="py-32 relative">
+      <section className="py-20 md:py-32 relative">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
             {/* Dashboard Style Form */}

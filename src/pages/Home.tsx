@@ -7,7 +7,7 @@ import { blogPosts, BlogCard } from './PitStop';
 
 export const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center py-32">
+    <section id="home" className="relative min-h-screen flex items-center justify-center py-20 px-4 md:py-32 md:px-0">
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0 bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-80% to-black z-10" />
@@ -48,7 +48,7 @@ export const Hero = () => {
             <span className="text-xs font-black uppercase tracking-[0.3em] text-racing-blue">Pineville's #1 Pit Stop</span>
           </div>
 
-          <h1 className="font-display font-black text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.8] mb-12 overflow-visible">
+          <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.8] mb-12 overflow-visible">
             <span className="italic inline-block">ULTIMATE</span> <br />
             <span className="italic inline-block text-transparent bg-clip-text bg-gradient-to-r from-racing-blue via-white to-neon-green pb-4 pr-6 tracking-normal">
               CLEAN FINISH
@@ -417,7 +417,7 @@ export const WashMenu = () => {
 
   return (
     <div className="pt-20 bg-black">
-      <section id="menu" className="py-32 relative overflow-hidden">
+      <section id="menu" className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 checkered-bg opacity-5" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -492,7 +492,7 @@ export const WashMenu = () => {
 
 export const CeramicShield = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center bg-black overflow-hidden py-32">
+    <section className="relative min-h-[90vh] flex items-center bg-black overflow-hidden py-20 md:py-32">
       {/* Cinematic Background Image */}
       <div className="absolute inset-0 z-0 btn-glint">
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10" />
@@ -519,7 +519,7 @@ export const CeramicShield = () => {
               <span className="font-display font-black uppercase tracking-[0.4em] text-xs">Ceramic Layering Tech</span>
             </div>
 
-            <h2 className="font-display font-black text-6xl md:text-8xl italic uppercase leading-[0.85] mb-8 text-white">
+            <h2 className="font-display font-black text-5xl md:text-7xl lg:text-8xl italic uppercase leading-[0.85] mb-8 text-white">
               THE <span className="text-racing-blue">CERAMIC</span> <br />
               <span className="text-neon-green">SHIELD</span>
             </h2>

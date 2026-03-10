@@ -1,11 +1,12 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
-import { Trophy, Zap, Shield, MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Trophy, Zap, Shield, MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Menu, X } from 'lucide-react';
 import siteLogo from '../assets/logo.png';
 
 export const Navbar = () => {
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -18,39 +19,83 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4">
-      <div className="max-w-7xl mx-auto glass rounded-full px-8 py-3 flex items-center justify-between border border-white/10 shadow-[0_0_20px_rgba(0,102,255,0.1)]">
-        <Link to="/" className="flex items-center">
-          <img
-            src={siteLogo}
-            alt="Clean Finish Car Wash Logo"
-            className="h-10 md:h-12 object-contain drop-shadow-lg"
-          />
-        </Link>
+    <>
+      <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4">
+        <div className="max-w-7xl mx-auto glass rounded-full px-6 md:px-8 py-3 flex items-center justify-between border border-white/10 shadow-[0_0_20px_rgba(0,102,255,0.1)]">
+          <Link to="/" className="flex items-center z-50">
+            <img
+              src={siteLogo}
+              alt="Clean Finish Car Wash Logo"
+              className="h-8 md:h-12 object-contain drop-shadow-lg"
+            />
+          </Link>
 
-        <div className="hidden md:flex items-center gap-8 font-display text-sm font-bold uppercase tracking-widest">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`transition-colors ${location.pathname === link.path ? 'text-neon-green' : 'hover:text-neon-green'}`}
-            >
-              {link.name}
+          <div className="hidden md:flex items-center gap-8 font-display text-sm font-bold uppercase tracking-widest">
+            {navLinks.map((link) => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={`transition-colors ${location.pathname === link.path ? 'text-neon-green' : 'hover:text-neon-green'}`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+
+          <div className="hidden md:block">
+            <Link to="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-neon-green text-black px-6 py-2 rounded-full font-display font-black text-xs uppercase tracking-tighter shadow-lg shadow-neon-green/40"
+              >
+                Join the Pit Crew
+              </motion.button>
             </Link>
-          ))}
-        </div>
+          </div>
 
-        <Link to="/contact">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-neon-green text-black px-6 py-2 rounded-full font-display font-black text-xs uppercase tracking-tighter shadow-lg shadow-neon-green/40"
+          <button
+            className="md:hidden text-white z-50"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            Join the Pit Crew
-          </motion.button>
-        </Link>
-      </div>
-    </nav>
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+      </nav>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center h-screen"
+          >
+            <div className="flex flex-col items-center gap-8 font-display text-2xl font-black uppercase tracking-widest">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`transition-colors ${location.pathname === link.path ? 'text-neon-green' : 'text-white hover:text-neon-green'}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <Link
+                to="/contact"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mt-8"
+              >
+                <button className="bg-neon-green text-black px-10 py-4 rounded-full font-display font-black text-xl uppercase tracking-tighter shadow-xl shadow-neon-green/40">
+                  Join the Pit Crew
+                </button>
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 

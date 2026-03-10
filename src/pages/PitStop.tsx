@@ -171,7 +171,7 @@ export const PitStop = () => {
 
   return (
     <div className="pt-20 bg-deep-black">
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-2 checkered-bg opacity-10" />
 
         <div className="max-w-7xl mx-auto px-6">
