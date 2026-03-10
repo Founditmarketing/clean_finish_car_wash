@@ -286,7 +286,7 @@ export const WashProducts = () => {
                 </div>
 
                 {/* Right Side: Content */}
-                <div className="flex-1 p-12 md:p-20 flex flex-col justify-center">
+                <div className="flex-1 p-16 md:p-24 flex flex-col justify-center">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -299,24 +299,9 @@ export const WashProducts = () => {
                       ))}
                     </h3>
 
-                    <p className="text-xl text-white/50 leading-relaxed font-medium mb-12 max-w-xl">
+                    <p className="text-xl text-white/50 leading-relaxed font-medium max-w-xl">
                       {activeProduct.longDesc}
                     </p>
-
-                    <div className="flex flex-wrap gap-8">
-                      <div className="flex flex-col gap-3">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Durability Rating</p>
-                        <div className="flex gap-2">
-                          {[1, 2, 3, 4, 5].map(i => <div key={i} className={`h-1.5 w-12 rounded-full ${i <= 4 ? 'bg-racing-blue' : 'bg-white/10'}`} />)}
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-3">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Surface Tension</p>
-                        <div className="flex gap-2">
-                          {[1, 2, 3, 4, 5].map(i => <div key={i} className="h-1.5 w-12 rounded-full bg-neon-green" />)}
-                        </div>
-                      </div>
-                    </div>
                   </motion.div>
                 </div>
 
