@@ -50,7 +50,7 @@ export const Hero = () => {
 
           <h1 className="font-display font-black text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.8] mb-12 overflow-visible">
             <span className="italic inline-block">ULTIMATE</span> <br />
-            <span className="italic inline-block text-transparent bg-clip-text bg-gradient-to-r from-racing-blue via-white to-neon-green pb-4 tracking-normal">
+            <span className="italic inline-block text-transparent bg-clip-text bg-gradient-to-r from-racing-blue via-white to-neon-green pb-4 pr-6 tracking-normal">
               CLEAN FINISH
             </span>
           </h1>
