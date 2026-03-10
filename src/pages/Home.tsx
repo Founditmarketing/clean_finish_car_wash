@@ -494,7 +494,7 @@ export const CeramicShield = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center bg-black overflow-hidden py-32">
       {/* Cinematic Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 btn-glint">
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 z-10" />
         <img
@@ -573,20 +573,6 @@ export const CeramicShield = () => {
         </div>
       </div>
 
-      {/* Dynamic Light Sweep */}
-      <motion.div
-        animate={{
-          x: ['-100%', '200%'],
-          opacity: [0, 0.3, 0]
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-          repeatDelay: 2
-        }}
-        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"
-      />
     </section>
   );
 };
