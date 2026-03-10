@@ -8,10 +8,10 @@ export const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'The Lore', path: '/about' },
+    { name: 'About Us', path: '/about' },
     { name: 'Wash Menu', path: '/menu' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'The Pit Stop', path: '/pitstop' },
+    { name: 'Blogs', path: '/pitstop' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -81,9 +81,9 @@ export const Footer = () => {
           <h4 className="font-display font-black uppercase tracking-widest text-racing-blue mb-6">Quick Laps</h4>
           <ul className="space-y-4 text-sm font-medium text-white/70">
             <li><Link to="/" className="hover:text-neon-green transition-colors">Home Base</Link></li>
-            <li><Link to="/about" className="hover:text-neon-green transition-colors">Our Story</Link></li>
+            <li><Link to="/about" className="hover:text-neon-green transition-colors">About Us</Link></li>
             <li><Link to="/menu" className="hover:text-neon-green transition-colors">Wash Packages</Link></li>
-            <li><Link to="/pitstop" className="hover:text-neon-green transition-colors">Pit Stop Blog</Link></li>
+            <li><Link to="/pitstop" className="hover:text-neon-green transition-colors">Blogs</Link></li>
           </ul>
         </div>
 

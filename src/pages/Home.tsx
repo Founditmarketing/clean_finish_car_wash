@@ -17,27 +17,19 @@ export const Hero = () => {
           className="w-full h-full object-cover opacity-60 scale-100"
           referrerPolicy="no-referrer"
         />
-        {/* Animated Suds/Bubbles */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+        {/* race car ambient lines */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
+          {[...Array(5)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute bg-white/20 rounded-full blur-xl"
-              initial={{
-                width: Math.random() * 100 + 50,
-                height: Math.random() * 100 + 50,
-                x: Math.random() * 100 + '%',
-                y: '110%'
-              }}
-              animate={{
-                y: '-20%',
-                x: (Math.random() * 100) + (Math.sin(i) * 10) + '%'
-              }}
+              className="absolute h-[1px] bg-gradient-to-r from-transparent via-racing-blue to-transparent w-full"
+              initial={{ top: (i * 20) + '%', left: '-100%' }}
+              animate={{ left: '100%' }}
               transition={{
-                duration: Math.random() * 10 + 5,
+                duration: 8,
                 repeat: Infinity,
                 ease: "linear",
-                delay: Math.random() * 5
+                delay: i * 2
               }}
             />
           ))}
@@ -327,14 +319,65 @@ export const WashProducts = () => {
   );
 };
 
+export const MiniAbout = () => {
+  return (
+    <section className="py-24 bg-deep-black relative overflow-hidden">
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-racing-blue/5 blur-[100px] rounded-full" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <div className="inline-flex items-center gap-2 bg-neon-green/10 border border-neon-green/30 px-4 py-1 rounded-full">
+              <Sparkles className="text-neon-green" size={14} />
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-neon-green">More Than A Wash</span>
+            </div>
+            <h2 className="font-display font-black text-5xl md:text-7xl italic uppercase tracking-tighter leading-none text-white">
+              IT'S A <span className="text-racing-blue">SERVICE</span> <br />
+              NOT A <span className="text-neon-green">STOP</span>
+            </h2>
+            <p className="text-white/60 text-lg leading-relaxed font-medium">
+              At Clean Finish, we treat every vehicle like it's headed for the podium. From our proprietary Ceramic Layering Tech to our high-octane customer service, we're Pineville's first choice for a championship shine.
+            </p>
+            <Link to="/about">
+              <button className="flex items-center gap-3 text-neon-green font-display font-black uppercase tracking-[0.3em] text-sm group mt-4">
+                Discover The Lore <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+              </button>
+            </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 border border-white/5 rounded-[40px] rotate-3" />
+            <div className="relative aspect-video rounded-[32px] overflow-hidden border-2 border-white/10 shadow-2xl">
+              <img src="/Images/TheCarWash.jpg" alt="Our Facility" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export const Home = () => {
   return (
-    <main>
+    <main className="relative">
       <Hero />
-      <WashProducts />
-      <MiniGallery />
-      <MiniPitStop />
-      <CeramicShield />
+      <div className="relative">
+        <div className="absolute inset-0 checkered-bg opacity-[0.03] pointer-events-none" />
+        <MiniAbout />
+        <WashProducts />
+        <MiniGallery />
+        <MiniPitStop />
+        <CeramicShield />
+      </div>
     </main>
   );
 };

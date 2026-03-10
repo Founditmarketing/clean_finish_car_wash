@@ -23,8 +23,8 @@ export const About = () => {
               <div className="absolute -inset-4 border-2 border-racing-blue/20 rounded-[40px] rotate-3" />
               <div className="relative rounded-[40px] overflow-hidden border-2 border-white/10 shadow-2xl shadow-racing-blue/20">
                 <img
-                  src="/Images/employeeIthink-7.jpg"
-                  alt="Clean Finish Team"
+                  src="/Images/TheCarWash.jpg"
+                  alt="Clean Finish Facility"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
                   referrerPolicy="no-referrer"
                 />
@@ -42,8 +42,8 @@ export const About = () => {
                 <span className="text-[10px] font-black uppercase tracking-[0.4em] text-racing-blue">Our Heritage</span>
               </div>
               <h2 className="font-display font-black text-6xl md:text-8xl italic uppercase leading-none tracking-tighter">
-                THE <span className="text-racing-blue">LORE</span> OF <br />
-                <span className="text-neon-green">CLEAN FINISH</span>
+                <span className="text-racing-blue">ABOUT</span> <br />
+                <span className="text-neon-green">US</span>
               </h2>
               <div className="space-y-6 text-white/70 text-lg leading-relaxed font-medium">
                 <p>
