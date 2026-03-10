@@ -9,12 +9,12 @@ export const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center py-32">
       {/* Dynamic Background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black z-10" />
+      <div className="absolute inset-0 z-0 bg-black">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-80% to-black z-10" />
         <img
           src="/Images/PickYourCarWash.jpg.webp"
           alt="Clean Finish Car Wash"
-          className="w-full h-full object-cover opacity-40 scale-110"
+          className="w-full h-full object-cover opacity-60 scale-100"
           referrerPolicy="no-referrer"
         />
         {/* Animated Suds/Bubbles */}
@@ -230,16 +230,16 @@ export const WashProducts = () => {
   const activeProduct = products.find(p => p.id === hoveredId);
 
   return (
-    <section className="py-24 bg-black overflow-hidden select-none">
+    <section className="py-12 bg-black overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-20">
+        <div className="mb-8">
           <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter text-white">
             WASH <span className="text-racing-blue">PRODUCTS</span>
           </h2>
           <p className="text-white/50 font-bold uppercase tracking-widest mt-2">Precision chemicals for a podium finish.</p>
         </div>
 
-        <div className="relative h-[600px] flex items-center justify-center">
+        <div className="relative h-[450px] flex items-center justify-center">
           {/* Base Row: Icons when nothing is hovered */}
           {!hoveredId && (
             <div className="w-full flex justify-between items-center px-4">
