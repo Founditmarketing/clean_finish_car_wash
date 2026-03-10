@@ -13,7 +13,7 @@ export const About = () => {
             initial={{ scale: 1.05 }}
             animate={{ scale: 1 }}
             transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-            src="/Images/PickYourCarWash.jpg.webp"
+            src="/Images/The_washing_place_at_night.jpg.webp"
             className="w-full h-full object-cover opacity-60 mix-blend-overlay"
             alt="Clean Finish Facility"
             referrerPolicy="no-referrer"
@@ -226,7 +226,7 @@ export const About = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link to="/contact">
-              <button className="bg-racing-blue text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/20 hover:scale-105 transition-transform w-full sm:w-auto">
+              <button className="btn-glint bg-racing-blue text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/20 hover:scale-105 transition-transform w-full sm:w-auto">
                 Find Our Track
               </button>
             </Link>

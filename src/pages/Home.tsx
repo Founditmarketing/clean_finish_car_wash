@@ -63,7 +63,7 @@ export const Hero = () => {
             <Link to="/menu">
               <motion.button
                 whileHover={{ scale: 1.05, x: 10 }}
-                className="bg-racing-blue text-white px-10 py-5 rounded-xl font-display font-black uppercase tracking-widest flex items-center gap-3 group shadow-lg shadow-racing-blue/20"
+                className="btn-glint bg-racing-blue text-white px-10 py-5 rounded-xl font-display font-black uppercase tracking-widest flex items-center gap-3 group shadow-lg shadow-racing-blue/20"
               >
                 Start Your Engines
                 <Zap size={20} />
@@ -562,7 +562,7 @@ export const CeramicShield = () => {
               className="mt-16"
             >
               <Link to="/contact">
-                <button className="bg-racing-blue text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/40 flex items-center gap-4 group w-full sm:w-auto justify-center">
+                <button className="btn-glint bg-racing-blue text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/40 flex items-center gap-4 group w-full sm:w-auto justify-center">
                   Protect Your Ride
                   <ArrowRight className="group-hover:translate-x-2 transition-transform" />
                 </button>
@@ -585,7 +585,7 @@ export const CeramicShield = () => {
           ease: "easeInOut",
           repeatDelay: 2
         }}
-        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"
       />
     </section>
   );

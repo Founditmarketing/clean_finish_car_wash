@@ -23,7 +23,7 @@ export const BlogPostDetail = () => {
         return (
             <div className="min-h-screen bg-black flex flex-col items-center justify-center p-6 text-center">
                 <h2 className="font-display font-black text-4xl uppercase italic mb-8">Article Not Found</h2>
-                <Link to="/pitstop" className="bg-racing-blue text-white px-8 py-4 rounded-xl font-display font-black uppercase tracking-widest flex items-center gap-3">
+                <Link to="/pitstop" className="btn-glint bg-racing-blue text-white px-8 py-4 rounded-xl font-display font-black uppercase tracking-widest flex items-center gap-3">
                     <ArrowLeft size={20} />
                     Back to Pit Stop
                 </Link>
@@ -163,7 +163,7 @@ export const BlogPostDetail = () => {
                             <p className="text-white/50 text-sm font-medium">Get the latest performance tips and exclusive member offers delivered to your inbox.</p>
                             <div className="space-y-3">
                                 <input type="email" placeholder="YOUR EMAIL" className="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm font-bold focus:outline-none focus:border-racing-blue transition-colors" />
-                                <button className="w-full bg-racing-blue text-white py-4 rounded-xl font-display font-black uppercase tracking-widest shadow-lg shadow-racing-blue/20">Sign Me Up</button>
+                                <button className="btn-glint w-full bg-racing-blue text-white py-4 rounded-xl font-display font-black uppercase tracking-widest shadow-lg shadow-racing-blue/20">Sign Me Up</button>
                             </div>
                         </div>
                     </div>

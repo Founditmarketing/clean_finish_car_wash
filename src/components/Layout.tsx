@@ -102,9 +102,11 @@ export const Footer = () => {
                 <span>2768 LA-28, Pineville, LA 71360</span>
               </Link>
             </li>
-            <li className="flex items-center gap-3">
-              <Phone size={18} className="text-neon-green shrink-0" />
-              <span>(318) 704-0162</span>
+            <li>
+              <a href="tel:3187040162" className="flex items-center gap-3 hover:text-neon-green transition-colors">
+                <Phone size={18} className="text-neon-green shrink-0" />
+                <span>(318) 704-0162</span>
+              </a>
             </li>
             <li>
               <a href="mailto:cleanfinishcarwash@gmail.com" className="flex items-center gap-3 hover:text-racing-blue transition-colors">
@@ -124,7 +126,7 @@ export const Footer = () => {
               placeholder="YOUR EMAIL"
               className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-xs focus:outline-none focus:border-racing-blue w-full"
             />
-            <button className="bg-racing-blue text-white px-4 py-2 rounded-lg font-display font-black text-[10px] uppercase tracking-tighter">
+            <button className="btn-glint bg-racing-blue text-white px-4 py-2 rounded-lg font-display font-black text-[10px] uppercase tracking-tighter">
               REV
             </button>
           </div>
