@@ -118,7 +118,7 @@ export const BlogPostDetail = () => {
                         <div className="flex items-center gap-4">
                             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Fuel The Conversation</span>
                             <div className="flex gap-2">
-                                {['Twitter', 'Facebook', 'Copy Link'].map(platform => (
+                                {['Facebook', 'Copy Link'].map(platform => (
                                     <button key={platform} className="px-4 py-2 glass rounded-lg text-[10px] font-black uppercase tracking-widest hover:bg-white/10">
                                         {platform}
                                     </button>
