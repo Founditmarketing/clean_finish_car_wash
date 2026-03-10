@@ -294,18 +294,11 @@ export const WashProducts = () => {
                   </motion.div>
                 </div>
 
-                {/* Close Button / Status */}
+                {/* Status indicator */}
                 <div className="absolute top-4 right-4 md:top-12 md:right-12 flex items-center gap-2 md:gap-4 z-50">
                   <div className="hidden md:block px-4 py-2 bg-racing-blue/10 border border-racing-blue/20 rounded-full">
                     <span className="text-[10px] font-black uppercase tracking-widest text-racing-blue">Active Formula</span>
                   </div>
-                  <button
-                    onClick={(e) => { e.stopPropagation(); setHoveredId(null); }}
-                    className="w-10 h-10 rounded-full glass bg-black/50 md:bg-transparent flex items-center justify-center hover:bg-white/10 transition-colors"
-                  >
-                    <div className="w-4 h-0.5 bg-white rotate-45 absolute" />
-                    <div className="w-4 h-0.5 bg-white -rotate-45 absolute" />
-                  </button>
                 </div>
               </motion.div>
             )}
@@ -353,7 +346,7 @@ export const MiniAbout = () => {
           >
             <div className="absolute -inset-4 border border-white/5 rounded-[40px] rotate-3" />
             <div className="relative aspect-video rounded-[32px] overflow-hidden border-2 border-white/10 shadow-2xl">
-              <img src="/Images/TheCarWash.jpg" alt="Our Facility" className="w-full h-full object-cover" />
+              <img src="/Images/Clean_lambo.jpg" alt="Our Facility" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             </div>
           </motion.div>
