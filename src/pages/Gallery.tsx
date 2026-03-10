@@ -4,7 +4,6 @@ import { Sparkles, Droplets, Zap, Search } from 'lucide-react';
 
 export const galleryItems = [
   { id: 1, image: "/Images/TheCarWash.jpg", title: "The Ultimate Facility", category: "Facility" },
-  { id: 2, image: "/Images/Clean_lambo.jpg", title: "Ceramic Shine", category: "Finish" },
   { id: 3, image: "/Images/TruckInTheWash.jpg", title: "Heavy Duty Rinse", category: "Tunnel" },
   { id: 4, image: "/Images/WetTruck.jpg", title: "Deep Gloss Finish", category: "Finish" },
   { id: 5, image: "/Images/inside_the_scrubbers.jpg", title: "Precision Cleaning", category: "Tunnel" },
@@ -13,10 +12,7 @@ export const galleryItems = [
   { id: 12, image: "/Images/PickYourCarWash.jpg.webp", title: "The Choice Is Yours", category: "Facility" },
   { id: 13, image: "/Images/unnamed-9.jpg", title: "Gleaming Results", category: "Finish" },
   { id: 14, image: "/Images/CeramicGlossRedesign.png", title: "Ceramic Protection", category: "Finish" },
-  { id: 15, image: "/Images/Hoses.jpg.webp", title: "High Pressure Systems", category: "Equipment" },
-  { id: 21, image: "/Images/TheCarWash.jpg", title: "Pineville's Pride", category: "Facility" },
-  { id: 22, image: "/Images/Clean_lambo.jpg", title: "Elite Shield", category: "Finish" },
-  { id: 23, image: "/Images/TruckInTheWash.jpg", title: "Mega Clean", category: "Tunnel" }
+  { id: 15, image: "/Images/Hoses.jpg.webp", title: "High Pressure Systems", category: "Equipment" }
 ];
 
 export const GalleryItem = ({ item }: any) => {
