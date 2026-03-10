@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, User, ArrowRight, Gauge, Filter } from 'lucide-react';
 
 export const blogPosts = [
@@ -9,85 +9,114 @@ export const blogPosts = [
     category: "Wash Tech",
     date: "MAR 10, 2026",
     author: "Pit Boss",
-    image: "/Images/Clean_lambo.jpg"
+    images: [
+      "/Blog Images/suddy BMW.png",
+      "/Blog Images/soaped up exhaust pipe.png",
+      "/Blog Images/manual tire spraying.png"
+    ]
   },
   {
     id: 2,
-    title: "Supporting Pineville's Finest",
+    title: "Precision Cleaning: The Under-Body Story",
     category: "Community",
     date: "MAR 05, 2026",
     author: "Admin",
-    image: "/Images/employeeIthink-7.jpg"
+    images: [
+      "/Blog Images/Car in the wash.png",
+      "/Blog Images/Auto Carwash.png",
+      "/Blog Images/Rotational scrubber thing.png"
+    ]
   },
   {
     id: 3,
-    title: "Spring Maintenance: Beat the Pollen",
+    title: "Battle Against the Elements",
     category: "Maintenance",
     date: "FEB 28, 2026",
     author: "Pit Boss",
-    image: "/Images/Hoses.jpg.webp"
-  },
-  {
-    id: 4,
-    title: "The Science of High-Pressure Water",
-    category: "Wash Tech",
-    date: "FEB 20, 2026",
-    author: "Tech Team",
-    image: "/Images/unnamed-9.jpg"
+    images: [
+      "/Blog Images/Dusty _wash me car.png",
+      "/Blog Images/Auto Carwash (2).png",
+      "/Blog Images/nascar.png"
+    ]
   }
 ];
 
 export const BlogCard = ({ post }: any) => {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+
+  React.useEffect(() => {
+    let interval: any;
+    if (isHovered && post.images.length > 1) {
+      interval = setInterval(() => {
+        setActiveImageIndex((prev) => (prev + 1) % post.images.length);
+      }, 1500);
+    } else if (!isHovered) {
+      setActiveImageIndex(0);
+    }
+    return () => clearInterval(interval);
+  }, [isHovered, post.images.length]);
 
   return (
     <motion.div
       whileHover={{ y: -10 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="glass rounded-[32px] overflow-hidden border border-white/10 group h-full"
+      className="glass rounded-[32px] overflow-hidden border border-white/10 group h-full flex flex-col"
     >
-      <div className="relative h-64 overflow-hidden">
-        <img
-          src={post.image}
-          alt={post.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute top-6 left-6 bg-racing-blue text-white px-4 py-1 rounded-full font-display font-black text-[10px] uppercase tracking-widest">
+      <div className="relative h-72 overflow-hidden bg-black">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={activeImageIndex}
+            src={post.images[activeImageIndex]}
+            alt={post.title}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+        </AnimatePresence>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+
+        <div className="absolute top-6 left-6 bg-racing-blue text-white px-4 py-1 rounded-full font-display font-black text-[10px] uppercase tracking-widest z-10">
           {post.category}
         </div>
 
-        {/* Speedometer Hover Effect */}
-        <div className={`absolute bottom-6 right-6 w-16 h-16 glass rounded-full flex items-center justify-center transition-all duration-500 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
-          <div className="relative w-10 h-10 border-2 border-neon-green rounded-full border-b-transparent">
-            <motion.div
-              className="absolute top-1/2 left-1/2 w-0.5 h-4 bg-neon-green origin-bottom -translate-x-1/2 -translate-y-full"
-              initial={{ rotate: -120 }}
-              animate={isHovered ? { rotate: 120 } : { rotate: -120 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            />
+        {/* Gallery Indicators */}
+        {post.images.length > 1 && (
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+            {post.images.map((_: any, i: number) => (
+              <div
+                key={i}
+                className={`h-1 rounded-full transition-all duration-300 ${i === activeImageIndex ? 'w-6 bg-neon-green' : 'w-2 bg-white/20'}`}
+              />
+            ))}
           </div>
-        </div>
+        )}
       </div>
 
-      <div className="p-8 space-y-4">
-        <div className="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest text-white/40">
-          <div className="flex items-center gap-2">
-            <Calendar size={14} className="text-racing-blue" />
-            {post.date}
+      <div className="p-8 space-y-4 flex-grow flex flex-col justify-between">
+        <div className="space-y-4">
+          <div className="flex items-center gap-6 text-[10px] font-black uppercase tracking-widest text-white/40">
+            <div className="flex items-center gap-2">
+              <Calendar size={14} className="text-racing-blue" />
+              {post.date}
+            </div>
+            <div className="flex items-center gap-2">
+              <User size={14} className="text-neon-green" />
+              {post.author}
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <User size={14} className="text-neon-green" />
-            {post.author}
-          </div>
+
+          <h3 className="font-display font-black text-2xl uppercase italic tracking-tighter leading-tight group-hover:text-racing-blue transition-colors">
+            {post.title}
+          </h3>
         </div>
 
-        <h3 className="font-display font-black text-2xl uppercase italic tracking-tighter leading-tight group-hover:text-racing-blue transition-colors">
-          {post.title}
-        </h3>
-
-        <button className="flex items-center gap-2 font-display font-black text-[10px] uppercase tracking-[0.3em] text-neon-green group-hover:gap-4 transition-all">
+        <button className="flex items-center gap-2 font-display font-black text-[10px] uppercase tracking-[0.3em] text-neon-green group-hover:gap-4 transition-all mt-6">
           Read Full Lap <ArrowRight size={14} />
         </button>
       </div>
@@ -105,9 +134,9 @@ export const PitStop = () => {
 
         <div className="max-w-7xl mx-auto px-6">
           {/* Featured Hero */}
-          <div className="relative rounded-[40px] overflow-hidden mb-20 aspect-[21/9] flex items-end p-12 group cursor-pointer">
+          <div className="relative rounded-[40px] overflow-hidden mb-20 aspect-[21/9] flex items-end p-12 group cursor-pointer border border-white/5 shadow-2xl">
             <img
-              src="/Images/The_washing_place_at_night.jpg.webp"
+              src="/Blog Images/nascar.png"
               alt="Featured Post"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               referrerPolicy="no-referrer"
