@@ -1,0 +1,5 @@
+{
+  "name": "Clean Finish Car Wash",
+  "description": "Premium, high-octane car wash experience in Pineville, LA. Racing-themed, deeply interactive, and community-focused.",
+  "requestFramePermissions": ["geolocation"]
+}
