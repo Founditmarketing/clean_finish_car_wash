@@ -54,7 +54,7 @@ export const Hero = () => {
             Experience the high-octane shine with our Ceramic Layering Technology and 100% Wash Guarantee.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/menu">
               <motion.button
                 whileHover={{ scale: 1.05, x: 10 }}
@@ -226,22 +226,24 @@ export const WashProducts = () => {
           <p className="text-white/50 font-bold uppercase tracking-widest mt-2">Precision chemicals for a podium finish.</p>
         </div>
 
-        <div className="relative h-[450px] flex items-center justify-center">
+        <div className="relative min-h-[500px] md:min-h-[450px] flex items-center justify-center">
           {/* Base Row: Icons when nothing is hovered */}
           {!hoveredId && (
-            <div className="w-full flex justify-between items-center px-4">
+            <div className="w-full grid grid-cols-2 lg:flex lg:justify-between items-center gap-6 lg:gap-0 px-2 lg:px-4">
               {products.map((product) => (
                 <motion.div
                   key={product.id}
                   layoutId={`product-icon-${product.id}`}
                   onMouseEnter={() => setHoveredId(product.id)}
-                  className="relative w-48 h-64 md:w-64 md:h-80 cursor-pointer flex items-center justify-center"
+                  onClick={() => setHoveredId(product.id)}
+                  className="relative w-full h-48 md:w-64 md:h-80 cursor-pointer flex flex-col items-center justify-center group"
                 >
                   <img
                     src={product.image}
-                    className="w-full h-full object-contain filter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+                    className="w-full h-full object-contain filter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-110"
                     alt={product.name}
                   />
+                  <span className="lg:hidden mt-4 text-center font-display font-black text-white/50 text-xs uppercase italic">{product.name}</span>
                 </motion.div>
               ))}
             </div>
@@ -255,14 +257,14 @@ export const WashProducts = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="absolute inset-0 bg-neutral-900 z-50 rounded-[4rem] border-2 border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] flex items-center overflow-hidden"
+                className="absolute inset-x-0 bottom-0 top-0 md:inset-0 bg-neutral-900 z-50 rounded-[2rem] md:rounded-[4rem] border-2 border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] flex flex-col md:flex-row items-center overflow-hidden h-fit md:h-[450px]"
                 onMouseLeave={() => setHoveredId(null)}
               >
-                {/* Left Side: Product Icon (Centered) */}
-                <div className="w-[40%] h-full flex items-center justify-center border-r border-white/5 bg-black/20">
+                {/* Image Area - Top on Mobile, Left on Desktop */}
+                <div className="w-full md:w-[40%] h-56 md:h-full flex items-center justify-center border-b md:border-b-0 md:border-r border-white/5 bg-black/20 shrink-0 relative">
                   <motion.div
                     layoutId={`product-icon-${activeProduct.id}`}
-                    className="w-72 h-96 md:w-96 md:h-[450px]"
+                    className="w-40 h-40 md:w-96 md:h-[450px]"
                   >
                     <img
                       src={activeProduct.image}
@@ -272,34 +274,34 @@ export const WashProducts = () => {
                   </motion.div>
                 </div>
 
-                {/* Right Side: Content */}
-                <div className="flex-1 p-16 md:p-24 flex flex-col justify-center">
+                {/* Content Area - Bottom on Mobile, Right on Desktop */}
+                <div className="flex-1 p-6 md:p-16 lg:p-24 flex flex-col justify-center w-full min-h-[50%]">
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                   >
-                    <span className="text-xs font-black uppercase tracking-[0.4em] text-racing-blue mb-4 block">Advanced Formula</span>
-                    <h3 className="font-display font-black text-5xl md:text-7xl uppercase italic text-white leading-[0.9] mb-8">
+                    <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.4em] text-racing-blue mb-2 md:mb-4 block">Advanced Formula</span>
+                    <h3 className="font-display font-black text-3xl md:text-5xl lg:text-7xl uppercase italic text-white leading-[0.9] mb-4 md:mb-8">
                       {activeProduct.name.split(' ').map((word, i) => (
                         <span key={i} className={i === 1 ? 'text-racing-blue block' : 'block'}>{word}</span>
                       ))}
                     </h3>
 
-                    <p className="text-xl text-white/50 leading-relaxed font-medium max-w-xl">
+                    <p className="text-sm md:text-lg lg:text-xl text-white/50 leading-relaxed font-medium max-w-xl">
                       {activeProduct.longDesc}
                     </p>
                   </motion.div>
                 </div>
 
-                {/* Status indicator */}
-                <div className="absolute top-12 right-12 flex items-center gap-4">
-                  <div className="px-4 py-2 bg-racing-blue/10 border border-racing-blue/20 rounded-full">
+                {/* Close Button / Status */}
+                <div className="absolute top-4 right-4 md:top-12 md:right-12 flex items-center gap-2 md:gap-4 z-50">
+                  <div className="hidden md:block px-4 py-2 bg-racing-blue/10 border border-racing-blue/20 rounded-full">
                     <span className="text-[10px] font-black uppercase tracking-widest text-racing-blue">Active Formula</span>
                   </div>
                   <button
-                    onClick={() => setHoveredId(null)}
-                    className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+                    onClick={(e) => { e.stopPropagation(); setHoveredId(null); }}
+                    className="w-10 h-10 rounded-full glass bg-black/50 md:bg-transparent flex items-center justify-center hover:bg-white/10 transition-colors"
                   >
                     <div className="w-4 h-0.5 bg-white rotate-45 absolute" />
                     <div className="w-4 h-0.5 bg-white -rotate-45 absolute" />
