@@ -19,13 +19,12 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 px-6 py-4">
       <div className="max-w-7xl mx-auto glass rounded-full px-8 py-3 flex items-center justify-between border border-white/10 shadow-[0_0_20px_rgba(0,102,255,0.1)]">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-racing-blue rounded-lg flex items-center justify-center rotate-3 shadow-lg shadow-racing-blue/20">
-            <Zap className="text-white fill-current" size={24} />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tighter italic">
-            CLEAN<span className="text-neon-green">FINISH</span>
-          </span>
+        <Link to="/" className="flex items-center">
+          <img
+            src="/cleanfinishcarwash_logo3white_shadow-1920w-1920w.png"
+            alt="Clean Finish Car Wash Logo"
+            className="h-10 md:h-12 object-contain drop-shadow-lg"
+          />
         </Link>
 
         <div className="hidden md:flex items-center gap-8 font-display text-sm font-bold uppercase tracking-widest">
@@ -56,15 +55,22 @@ export const Navbar = () => {
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-zinc-900 pt-20 pb-10 overflow-hidden border-t-4 border-transparent bg-gradient-to-r from-racing-blue via-neon-green to-racing-blue [border-image:linear-gradient(to_right,#0066ff,#39ff14,#0066ff)_1]">
-      <div className="absolute inset-0 checkered-bg opacity-30 pointer-events-none" />
+    <footer className="relative bg-black pt-20 pb-10 overflow-hidden border-t-4 border-transparent bg-gradient-to-r from-racing-blue via-neon-green to-racing-blue [border-image:linear-gradient(to_right,#0066ff,#39ff14,#0066ff)_1]">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#0066ff15_1px,transparent_1px),linear-gradient(to_bottom,#39ff1415_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]">
+        <motion.div
+          className="w-full h-full bg-[linear-gradient(to_right,#0066ff15_1px,transparent_1px),linear-gradient(to_bottom,#39ff1415_1px,transparent_1px)] bg-[size:40px_40px]"
+          animate={{ backgroundPosition: ['0px 0px', '40px 40px'] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+        />
+      </div>
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
         <div className="space-y-6">
-          <Link to="/" className="flex items-center gap-2">
-            <Zap className="text-racing-blue fill-current" size={24} />
-            <span className="font-display font-bold text-2xl tracking-tighter italic">
-              CLEAN<span className="text-neon-green">FINISH</span>
-            </span>
+          <Link to="/" className="flex items-center">
+            <img
+              src="/cleanfinishcarwash_logo3white_shadow-1920w-1920w.png"
+              alt="Clean Finish Car Wash Logo"
+              className="h-12 object-contain drop-shadow-lg"
+            />
           </Link>
           <p className="text-white/90 text-sm leading-relaxed font-bold">
             Providing the ultimate customer experience in Pineville, LA. We serve God by serving others with honesty and integrity.
