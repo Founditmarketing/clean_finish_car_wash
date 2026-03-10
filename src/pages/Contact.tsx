@@ -23,7 +23,7 @@ export const Contact = () => {
               className="glass p-10 rounded-[40px] border-2 border-racing-blue/30 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-racing-blue/10 blur-3xl rounded-full" />
-              
+
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-12 h-12 bg-racing-blue rounded-xl flex items-center justify-center shadow-lg shadow-racing-blue/20">
                   <MessageSquare className="text-white" />
@@ -81,7 +81,7 @@ export const Contact = () => {
                     <MapPin className="text-neon-green shrink-0" />
                     <div>
                       <h4 className="font-display font-black uppercase text-xs tracking-widest mb-2">Track Location</h4>
-                      <p className="text-xs text-white/60 font-bold uppercase">2768 LA-28, Pineville, LA</p>
+                      <p className="text-xs text-white/60 font-bold uppercase">2768 Louisiana Highway 28, Pineville, Louisiana 71360</p>
                       <p className="text-[10px] text-neon-green font-black uppercase mt-1">Next to Autozone</p>
                     </div>
                   </div>
@@ -110,8 +110,8 @@ export const Contact = () => {
 
               {/* Map Placeholder */}
               <div className="h-64 rounded-3xl overflow-hidden relative grayscale border-2 border-white/10 shadow-[0_0_30px_rgba(0,102,255,0.1)]">
-                <img 
-                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000" 
+                <img
+                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000"
                   alt="Map Placeholder"
                   className="w-full h-full object-cover opacity-50"
                   referrerPolicy="no-referrer"

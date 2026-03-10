@@ -5,7 +5,7 @@ import { Trophy, Zap, Shield, MapPin, Phone, Mail, Clock, Facebook, Instagram, T
 
 export const Navbar = () => {
   const location = useLocation();
-  
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'The Lore', path: '/about' },
@@ -26,12 +26,12 @@ export const Navbar = () => {
             CLEAN<span className="text-neon-green">FINISH</span>
           </span>
         </Link>
-        
+
         <div className="hidden md:flex items-center gap-8 font-display text-sm font-bold uppercase tracking-widest">
           {navLinks.map((link) => (
-            <Link 
-              key={link.path} 
-              to={link.path} 
+            <Link
+              key={link.path}
+              to={link.path}
               className={`transition-colors ${location.pathname === link.path ? 'text-neon-green' : 'hover:text-neon-green'}`}
             >
               {link.name}
@@ -66,7 +66,7 @@ export const Footer = () => {
             Providing the ultimate customer experience in Pineville, LA. We serve God by serving others with honesty and integrity.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-racing-blue transition-colors group">
+            <a href="https://www.facebook.com/cleanfinishcarwashLA" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-racing-blue transition-colors group">
               <Facebook size={18} className="group-hover:text-white transition-colors" />
             </a>
             <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-neon-green transition-colors group">
@@ -110,9 +110,9 @@ export const Footer = () => {
           <h4 className="font-display font-black uppercase tracking-widest text-racing-blue mb-6">Start Your Engines</h4>
           <p className="text-xs text-white/50 mb-4 uppercase tracking-wider">Get exclusive deals and racing news.</p>
           <div className="flex gap-2">
-            <input 
-              type="email" 
-              placeholder="YOUR EMAIL" 
+            <input
+              type="email"
+              placeholder="YOUR EMAIL"
               className="bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-xs focus:outline-none focus:border-racing-blue w-full"
             />
             <button className="bg-racing-blue text-white px-4 py-2 rounded-lg font-display font-black text-[10px] uppercase tracking-tighter">
@@ -125,7 +125,7 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold text-white/30 uppercase tracking-widest">
         <p>© 2026 CLEAN FINISH CAR WASH. ALL RIGHTS RESERVED.</p>
         <div className="flex gap-8">
-          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/terms">Terms of Service</Link>
         </div>
       </div>
