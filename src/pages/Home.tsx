@@ -234,95 +234,99 @@ export const WashProducts = () => {
   return (
     <section className="py-24 bg-black overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16">
+        <div className="mb-20">
           <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter text-white">
             WASH <span className="text-racing-blue">PRODUCTS</span>
           </h2>
-          <p className="text-white/50 font-bold uppercase tracking-widest mt-2">The fuel for your vehicle's shine.</p>
+          <p className="text-white/50 font-bold uppercase tracking-widest mt-2">Precision chemicals for a podium finish.</p>
         </div>
 
-        <div className="relative h-[450px]">
-          {/* Base Layout: All products in a row */}
-          <div className="flex justify-between items-center h-full px-12">
+        <div className="relative h-[500px] flex items-center">
+          {/* Base Row of Icons */}
+          <div className="w-full flex justify-between items-center px-4 relative z-10">
             {products.map((product, idx) => {
               const isActive = hoveredId === product.id;
 
               return (
                 <div
                   key={product.id}
-                  className="relative group "
+                  className="relative flex flex-col items-center"
                   onMouseEnter={() => setHoveredId(product.id)}
                 >
-                  {/* Product Icon (Idle) */}
                   <motion.div
                     animate={{
                       opacity: hoveredId !== null && !isActive ? 0 : 1,
-                      scale: isActive ? 1.2 : 1,
-                      x: isActive ? -(idx * 320) : 0,
-                      zIndex: isActive ? 50 : 10
+                      scale: isActive ? 1.1 : 1,
+                      x: isActive ? -(idx * 280) : 0,
+                      zIndex: isActive ? 60 : 10
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="relative w-64 h-96 flex flex-col items-center justify-center pointer-events-auto"
+                    className="relative w-64 h-80 flex items-center justify-center cursor-pointer pointer-events-auto"
                   >
-                    <div className="w-full h-full p-6 border-2 border-white/10 rounded-[3rem] bg-white/5 transition-colors group-hover:border-white/30 overflow-hidden">
-                      <img
-                        src={product.image}
-                        className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-transform group-hover:drop-shadow-[0_0_40px_rgba(0,102,255,0.3)]"
-                        alt={product.name}
-                      />
-                    </div>
+                    <img
+                      src={product.image}
+                      className="w-full h-full object-contain filter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105"
+                      alt={product.name}
+                    />
                   </motion.div>
                 </div>
               );
             })}
           </div>
 
-          {/* Expansion Card Overlay */}
+          {/* Distinct Expansion Card */}
           <AnimatePresence>
             {hoveredId && (
               <motion.div
-                initial={{ opacity: 0, width: 0 }}
-                animate={{ opacity: 1, width: '100%' }}
-                exit={{ opacity: 0, width: 0 }}
-                transition={{ type: "tween", duration: 0.4, ease: "circOut" }}
-                className="absolute inset-0 bg-neutral-900 z-40 rounded-[40px] border border-white/10 shadow-2xl flex items-center justify-end overflow-hidden"
+                initial={{ opacity: 0, x: 100, scaleX: 0 }}
+                animate={{ opacity: 1, x: 0, scaleX: 1 }}
+                exit={{ opacity: 0, x: 100, scaleX: 0 }}
+                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                style={{ originX: 0 }}
+                className="absolute inset-0 bg-neutral-900 z-50 rounded-[3rem] border-2 border-white/10 shadow-2xl flex items-center justify-end overflow-hidden"
                 onMouseLeave={() => setHoveredId(null)}
               >
-                {/* Content Area */}
+                {/* Visual Accent */}
+                <div className="absolute top-0 left-0 w-2 h-full bg-racing-blue" />
+
+                {/* Text Content */}
                 <motion.div
-                  initial={{ opacity: 0, x: 50 }}
+                  initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="w-full max-w-[65%] pl-12 pr-12 text-left"
+                  transition={{ delay: 0.15 }}
+                  className="w-full max-w-[60%] pr-16 text-left"
                 >
-                  <div className="mb-2">
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-racing-blue">Premium Product</span>
-                    <h3 className="font-display font-black text-4xl md:text-5xl uppercase italic text-white mb-6">
+                  <div className="mb-4">
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-racing-blue mb-2 block">Performance Tier</span>
+                    <h3 className="font-display font-black text-5xl uppercase italic text-white leading-none">
                       {products.find(p => p.id === hoveredId)?.name}
                     </h3>
                   </div>
 
-                  <p className="text-xl text-white/80 leading-relaxed font-medium mb-10">
+                  <p className="text-xl text-white/70 leading-relaxed font-medium mb-10 max-w-xl">
                     {products.find(p => p.id === hoveredId)?.longDesc}
                   </p>
 
-                  <div className="flex gap-4">
-                    <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl">
-                      <p className="text-[10px] font-black uppercase text-white/40 mb-1">Benefit</p>
-                      <p className="text-xs font-bold text-white uppercase tracking-widest leading-none">High Gloss Shine</p>
+                  <div className="flex gap-6">
+                    <div className="flex flex-col gap-1">
+                      <p className="text-[9px] font-black uppercase tracking-widest text-white/30">Durability</p>
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map(i => <div key={i} className={`w-6 h-1 rounded-full ${i <= 4 ? 'bg-racing-blue' : 'bg-white/10'}`} />)}
+                      </div>
                     </div>
-                    <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl">
-                      <p className="text-[10px] font-black uppercase text-white/40 mb-1">Protection</p>
-                      <p className="text-xs font-bold text-white uppercase tracking-widest leading-none">30-Day Layer</p>
+                    <div className="flex flex-col gap-1">
+                      <p className="text-[9px] font-black uppercase tracking-widest text-white/30">Shine factor</p>
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-6 h-1 rounded-full bg-neon-green" />)}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
 
-                {/* Close/Interaction hint */}
-                <div className="absolute top-10 right-10">
-                  <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/20 text-[10px]">
-                    ESC
-                  </div>
+                {/* Status Indicator */}
+                <div className="absolute bottom-10 right-10 flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Active Formula</span>
                 </div>
               </motion.div>
             )}
