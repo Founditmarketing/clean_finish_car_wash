@@ -13,7 +13,7 @@ export const About = () => {
             initial={{ scale: 1.05 }}
             animate={{ scale: 1 }}
             transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-            src="/Images/TheCarWash.jpg"
+            src="/Images/PickYourCarWash.jpg.webp"
             className="w-full h-full object-cover opacity-60 mix-blend-overlay"
             alt="Clean Finish Facility"
             referrerPolicy="no-referrer"

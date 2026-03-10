@@ -56,8 +56,9 @@ export const Navbar = () => {
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-black pt-20 pb-10 overflow-hidden border-t-4 border-transparent bg-gradient-to-r from-racing-blue via-neon-green to-racing-blue [border-image:linear-gradient(to_right,#0066ff,#39ff14,#0066ff)_1]">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="relative bg-[#050505] pt-20 pb-10 overflow-hidden border-t-4 border-transparent bg-gradient-to-r from-racing-blue via-neon-green to-racing-blue [border-image:linear-gradient(to_right,#0066ff,#39ff14,#0066ff)_1]">
+      <div className="absolute inset-0 bg-white/[0.02] pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 relative z-10">
         <div className="space-y-6">
           <Link to="/" className="flex items-center gap-2">
             <Zap className="text-racing-blue fill-current" size={24} />
