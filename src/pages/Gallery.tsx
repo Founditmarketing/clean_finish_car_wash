@@ -9,24 +9,14 @@ export const galleryItems = [
   { id: 4, image: "/Images/WetTruck.jpg", title: "Deep Gloss Finish", category: "Finish" },
   { id: 5, image: "/Images/inside_the_scrubbers.jpg", title: "Precision Cleaning", category: "Tunnel" },
   { id: 6, image: "/Images/The_washing_place_at_night.jpg.webp", title: "Midnight Polish", category: "Facility" },
-  { id: 7, image: "/Blog Images/suddy BMW.png", title: "Championship Suds", category: "Tunnel" },
-  { id: 8, image: "/Blog Images/nascar.png", title: "The Finish Line", category: "Facility" },
-  { id: 9, image: "/Blog Images/Auto Carwash (2).png", title: "Pro Tunnel Tech", category: "Equipment" },
-  { id: 10, image: "/Blog Images/manual tire spraying.png", title: "Detailing Focus", category: "Finish" },
   { id: 11, image: "/Images/Photo Feb 05, 9 13 06 AM.jpg", title: "Morning Prep", category: "Facility" },
   { id: 12, image: "/Images/PickYourCarWash.jpg.webp", title: "The Choice Is Yours", category: "Facility" },
   { id: 13, image: "/Images/unnamed-9.jpg", title: "Gleaming Results", category: "Finish" },
   { id: 14, image: "/Images/CeramicGlossRedesign.png", title: "Ceramic Protection", category: "Finish" },
   { id: 15, image: "/Images/Hoses.jpg.webp", title: "High Pressure Systems", category: "Equipment" },
-  { id: 16, image: "/Blog Images/Auto Carwash.png", title: "Automated Precision", category: "Equipment" },
-  { id: 17, image: "/Blog Images/Car in the wash.png", title: "Under the Hood", category: "Tunnel" },
-  { id: 18, image: "/Blog Images/Dusty _wash me car.png", title: "The Transformation", category: "Finish" },
-  { id: 19, image: "/Blog Images/Rotational scrubber thing.png", title: "Scrub Master", category: "Equipment" },
-  { id: 20, image: "/Blog Images/soaped up exhaust pipe.png", title: "Every Detail Counts", category: "Finish" },
   { id: 21, image: "/Images/TheCarWash.jpg", title: "Pineville's Pride", category: "Facility" },
   { id: 22, image: "/Images/Clean_lambo.jpg", title: "Elite Shield", category: "Finish" },
-  { id: 23, image: "/Images/TruckInTheWash.jpg", title: "Mega Clean", category: "Tunnel" },
-  { id: 24, image: "/Blog Images/nascar.png", title: "Speed & Shine", category: "Facility" }
+  { id: 23, image: "/Images/TruckInTheWash.jpg", title: "Mega Clean", category: "Tunnel" }
 ];
 
 export const GalleryItem = ({ item }: any) => {

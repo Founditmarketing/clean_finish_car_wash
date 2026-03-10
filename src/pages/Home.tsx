@@ -340,7 +340,7 @@ export const MiniAbout = () => {
               NOT A <span className="text-neon-green">STOP</span>
             </h2>
             <p className="text-white/60 text-lg leading-relaxed font-medium">
-              At Clean Finish, we treat every vehicle like it's headed for the podium. From our proprietary Ceramic Layering Tech to our high-octane customer service, we're Pineville's first choice for a championship shine.
+              At Clean Finish, we treat every vehicle like it's headed for the podium. From our proprietary Ceramic Layering Tech to our high-octane customer service, we're Pineville's first choice for a championship shine. We believe that a clean car isn't just about aesthetics—it's about pride, maintenance, and that psychological reset you get when your dashboard is dust-free. Our state-of-the-art tunnel technology and carefully formulated washing solutions ensure your vehicle is meticulously cleaned and protected from the harsh Louisiana elements.
             </p>
             <Link to="/about">
               <button className="flex items-center gap-3 text-neon-green font-display font-black uppercase tracking-[0.3em] text-sm group mt-4">

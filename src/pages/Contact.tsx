@@ -109,21 +109,21 @@ export const Contact = () => {
               </div>
 
               {/* Live Google Map */}
-              <div className="h-80 rounded-3xl overflow-hidden relative border-4 border-racing-blue/20 shadow-2xl">
-                <div className="absolute inset-0 border border-white/10 pointer-events-none" />
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4033.6378495346903!2d-92.4091776485384!3d31.332531590350147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86254ddd03dca943%3A0x8f2f909cabeb8e5b!2sClean%20Finish%20Car%20Wash!5e1!3m2!1sen!2sus!4v1773171155994!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+              <div className="h-80 rounded-3xl overflow-hidden relative p-[4px] bg-gradient-to-r from-racing-blue via-neon-green to-racing-blue shadow-2xl">
+                <div className="absolute inset-[4px] bg-deep-black rounded-[28px] overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4033.6378495346903!2d-92.4091776485384!3d31.332531590350147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86254ddd03dca943%3A0x8f2f909cabeb8e5b!2sClean%20Finish%20Car%20Wash!5e1!3m2!1sen!2sus!4v1773171155994!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
-        </div>
       </section>
     </div>
   );

@@ -11,6 +11,7 @@ export const Navbar = () => {
     { name: 'About Us', path: '/about' },
     { name: 'Wash Menu', path: '/menu' },
     { name: 'Gallery', path: '/gallery' },
+    { name: 'Reviews', path: '/reviews' },
     { name: 'Blogs', path: '/pitstop' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -64,22 +65,22 @@ export const Footer = () => {
               CLEAN<span className="text-neon-green">FINISH</span>
             </span>
           </Link>
-          <p className="text-white/60 text-sm leading-relaxed">
+          <p className="text-white/80 text-sm leading-relaxed font-medium">
             Providing the ultimate customer experience in Pineville, LA. We serve God by serving others with honesty and integrity.
           </p>
           <div className="flex gap-4">
             <a href="https://www.facebook.com/cleanfinishcarwashLA" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-racing-blue transition-colors group">
               <Facebook size={18} className="group-hover:text-white transition-colors" />
             </a>
-            <a href="#" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-neon-green transition-colors group">
-              <Instagram size={18} className="group-hover:text-black transition-colors" />
+            <a href="https://www.facebook.com/cleanfinishcarwashLA" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-racing-blue transition-colors group">
+              <Facebook size={18} className="group-hover:text-white transition-colors" />
             </a>
           </div>
         </div>
 
         <div>
           <h4 className="font-display font-black uppercase tracking-widest text-racing-blue mb-6">Quick Laps</h4>
-          <ul className="space-y-4 text-sm font-medium text-white/70">
+          <ul className="space-y-4 text-sm font-bold text-white/90">
             <li><Link to="/" className="hover:text-neon-green transition-colors">Home Base</Link></li>
             <li><Link to="/about" className="hover:text-neon-green transition-colors">About Us</Link></li>
             <li><Link to="/menu" className="hover:text-neon-green transition-colors">Wash Packages</Link></li>
@@ -89,10 +90,12 @@ export const Footer = () => {
 
         <div>
           <h4 className="font-display font-black uppercase tracking-widest text-neon-green mb-6">The Garage</h4>
-          <ul className="space-y-4 text-sm font-medium text-white/70">
-            <li className="flex items-start gap-3">
-              <MapPin size={18} className="text-racing-blue shrink-0" />
-              <span>2768 LA-28, Pineville, LA 71360</span>
+          <ul className="space-y-4 text-sm font-bold text-white/90">
+            <li>
+              <Link to="/contact#map" className="flex items-start gap-3 hover:text-racing-blue transition-colors">
+                <MapPin size={18} className="text-racing-blue shrink-0" />
+                <span>2768 LA-28, Pineville, LA 71360</span>
+              </Link>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={18} className="text-neon-green shrink-0" />

@@ -179,7 +179,7 @@ export const PitStop = () => {
           <Link to={`/pitstop/${blogPosts[0].id}`}>
             <div className="relative rounded-[40px] overflow-hidden mb-20 aspect-[21/9] flex items-end p-12 group cursor-pointer border border-white/5 shadow-2xl">
               <img
-                src="/Blog Images/nascar.png"
+                src="/Images/Hoses.jpg.webp"
                 alt="Featured Post"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 referrerPolicy="no-referrer"

@@ -8,6 +8,7 @@ import { Contact } from './pages/Contact';
 import { PitStop } from './pages/PitStop';
 import { BlogPostDetail } from './pages/BlogPostDetail';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { Reviews } from './pages/Reviews';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -34,6 +35,7 @@ export default function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/pitstop" element={<PitStop />} />
             <Route path="/pitstop/:id" element={<BlogPostDetail />} />
+            <Route path="/reviews" element={<Reviews />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

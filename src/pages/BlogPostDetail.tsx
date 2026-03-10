@@ -1,11 +1,12 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Calendar, User, ArrowLeft, Share2, Clock, ChevronRight } from 'lucide-react';
 import { blogPosts } from './PitStop';
 
 export const BlogPostDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const post = blogPosts.find(p => p.id === Number(id));
 
     const handleShare = (platform: string) => {
@@ -143,7 +144,7 @@ export const BlogPostDetail = () => {
                             onClick={() => {
                                 const currentIndex = blogPosts.findIndex(p => p.id === post.id);
                                 const nextIndex = (currentIndex + 1) % blogPosts.length;
-                                window.location.href = `/pitstop/${blogPosts[nextIndex].id}`;
+                                navigate(`/pitstop/${blogPosts[nextIndex].id}`);
                             }}
                             className="flex items-center gap-3 text-neon-green font-display font-black uppercase tracking-[0.2em] text-sm group"
                         >

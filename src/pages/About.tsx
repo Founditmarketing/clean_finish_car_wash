@@ -7,58 +7,53 @@ export const About = () => {
   return (
     <div className="pt-20 bg-black">
       {/* Hero Lore Section */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-          <div className="absolute inset-0 checkered-bg" />
+      <section className="relative min-h-[70vh] flex items-center justify-center pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <motion.img
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+            src="/Images/TheCarWash.jpg"
+            className="w-full h-full object-cover opacity-30"
+            alt="Clean Finish Facility"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/80 to-black" />
+          <div className="absolute inset-0 checkered-bg opacity-10 pointer-events-none" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="absolute -inset-4 border-2 border-racing-blue/20 rounded-[40px] rotate-3" />
-              <div className="relative rounded-[40px] overflow-hidden border-2 border-white/10 shadow-2xl shadow-racing-blue/20">
-                <img
-                  src="/Images/TheCarWash.jpg"
-                  alt="Clean Finish Facility"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              </div>
-              <div className="absolute -bottom-10 -right-10 z-20 glass p-8 rounded-3xl border border-neon-green/30 shadow-2xl">
-                <div className="font-display font-black text-5xl italic text-neon-green leading-none">EST. 2018</div>
-                <div className="text-[10px] font-black uppercase tracking-[0.4em] mt-2 text-white/60">Pineville's Original Pit Stop</div>
-              </div>
-            </motion.div>
-
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 bg-racing-blue/10 border border-racing-blue/30 px-4 py-1 rounded-full">
-                <Trophy className="text-racing-blue" size={14} />
-                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-racing-blue">Our Heritage</span>
-              </div>
-              <h2 className="font-display font-black text-6xl md:text-8xl italic uppercase leading-none tracking-tighter">
-                <span className="text-racing-blue">ABOUT</span> <br />
-                <span className="text-neon-green">US</span>
-              </h2>
-              <div className="space-y-6 text-white/70 text-lg leading-relaxed font-medium">
-                <p>
-                  In 2018, we looked at the car wash industry in Central Louisiana and saw a missing gear. We saw plenty of "washes," but we didn't see any "experiences." We wanted to build a place where the technology of a professional racing pit stop met the warmth of a Sunday morning church social.
-                </p>
-                <p>
-                  Clean Finish was founded at 2768 Louisiana Highway 28 with a singular, high-octane goal: to serve God by serving our neighbors. We believe that a clean car isn't just about aesthetics—it's about pride, maintenance, and that psychological "reset" you get when your dashboard is dust-free and your paint is gleaming.
-                </p>
-                <p>
-                  From our insanely strong vacuums to our proprietary Ceramic Layering Technology, every piece of equipment was hand-selected to ensure Pineville drivers get the absolute best finish on the leaderboard.
-                </p>
-              </div>
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8 flex flex-col items-center"
+          >
+            <div className="inline-flex items-center gap-2 bg-racing-blue/10 border border-racing-blue/30 px-6 py-2 rounded-full mb-4">
+              <Trophy className="text-racing-blue" size={16} />
+              <span className="text-xs font-black uppercase tracking-[0.4em] text-racing-blue">Our Heritage</span>
             </div>
-          </div>
 
+            <h1 className="font-display font-black text-6xl md:text-8xl italic uppercase leading-none tracking-tighter mx-auto max-w-3xl">
+              <span className="text-racing-blue">ABOUT</span> <span className="text-neon-green">US</span>
+            </h1>
+            <div className="space-y-6 text-white/70 text-lg leading-relaxed font-medium">
+              <p>
+                In 2018, we looked at the car wash industry in Central Louisiana and saw a missing gear. We saw plenty of "washes," but we didn't see any "experiences." We wanted to build a place where the technology of a professional racing pit stop met the warmth of a Sunday morning church social.
+              </p>
+              <p>
+                Clean Finish was founded at 2768 Louisiana Highway 28 with a singular, high-octane goal: to serve God by serving our neighbors. We believe that a clean car isn't just about aesthetics—it's about pride, maintenance, and that psychological "reset" you get when your dashboard is dust-free and your paint is gleaming.
+              </p>
+              <p>
+                From our insanely strong vacuums to our proprietary Ceramic Layering Technology, every piece of equipment was hand-selected to ensure Pineville drivers get the absolute best finish on the leaderboard.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-black">
+        <div className="max-w-7xl mx-auto px-6">
           {/* Core Values Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
             {[
@@ -100,10 +95,11 @@ export const About = () => {
             ))}
           </div>
         </div>
-      </section>
+    </div>
+      </section >
 
-      {/* Why Trust Us Section */}
-      <section className="py-32 bg-deep-black relative">
+  {/* Why Trust Us Section */ }
+  < section className = "py-32 bg-deep-black relative" >
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -186,41 +182,41 @@ export const About = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
-      {/* Stats Section */}
-      <section className="py-24 bg-black border-y border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            {[
-              { label: "Cars Washed", value: "250K+", color: "text-racing-blue", icon: <Zap size={20} /> },
-              { label: "Happy Members", value: "5,000+", color: "text-neon-green", icon: <Users size={20} /> },
-              { label: "Gallons Saved", value: "1.2M", color: "text-racing-blue", icon: <Droplets size={20} /> },
-              { label: "Police Washes", value: "FREE", color: "text-neon-green", icon: <Shield size={20} /> }
-            ].map((stat, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="text-center space-y-4"
-              >
-                <div className={`mx-auto w-12 h-12 rounded-full bg-white/5 flex items-center justify-center ${stat.color} opacity-50`}>
-                  {stat.icon}
-                </div>
-                <div>
-                  <div className={`font-display font-black text-5xl md:text-7xl italic mb-2 ${stat.color} tracking-tighter`}>{stat.value}</div>
-                  <div className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30">{stat.label}</div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+  {/* Stats Section */ }
+  < section className = "py-24 bg-black border-y border-white/5" >
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+        {[
+          { label: "Cars Washed", value: "250K+", color: "text-racing-blue", icon: <Zap size={20} /> },
+          { label: "Happy Members", value: "5,000+", color: "text-neon-green", icon: <Users size={20} /> },
+          { label: "Gallons Saved", value: "1.2M", color: "text-racing-blue", icon: <Droplets size={20} /> },
+          { label: "Police Washes", value: "FREE", color: "text-neon-green", icon: <Shield size={20} /> }
+        ].map((stat, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="text-center space-y-4"
+          >
+            <div className={`mx-auto w-12 h-12 rounded-full bg-white/5 flex items-center justify-center ${stat.color} opacity-50`}>
+              {stat.icon}
+            </div>
+            <div>
+              <div className={`font-display font-black text-5xl md:text-7xl italic mb-2 ${stat.color} tracking-tighter`}>{stat.value}</div>
+              <div className="text-[10px] font-black uppercase tracking-[0.4em] text-white/30">{stat.label}</div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+      </section >
 
-      {/* CTA Section */}
-      <section className="py-32 bg-deep-black relative overflow-hidden">
+  {/* CTA Section */ }
+  < section className = "py-32 bg-deep-black relative overflow-hidden" >
         <div className="absolute inset-0 checkered-bg opacity-5" />
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter mb-8">
@@ -242,7 +238,7 @@ export const About = () => {
             </Link>
           </div>
         </div>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 };
