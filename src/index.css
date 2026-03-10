@@ -12,6 +12,7 @@
 @layer base {
   body {
     @apply bg-black text-white selection:bg-neon-green selection:text-black;
+    overflow-x: hidden;
   }
 
   /* Custom Scrollbar */

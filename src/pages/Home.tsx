@@ -56,9 +56,9 @@ export const Hero = () => {
             <span className="text-xs font-black uppercase tracking-[0.3em] text-racing-blue">Pineville's #1 Pit Stop</span>
           </div>
           
-          <h1 className="font-display font-black text-6xl md:text-8xl lg:text-9xl uppercase leading-tight mb-12 px-20 overflow-visible">
+          <h1 className="font-display font-black text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.8] mb-12 overflow-visible">
             <span className="italic inline-block">ULTIMATE</span> <br />
-            <span className="italic inline-block text-transparent bg-clip-text bg-gradient-to-r from-racing-blue via-white to-neon-green pr-40 pb-4 tracking-normal">
+            <span className="italic inline-block text-transparent bg-clip-text bg-gradient-to-r from-racing-blue via-white to-neon-green pb-4 tracking-normal">
               CLEAN FINISH
             </span>
           </h1>
