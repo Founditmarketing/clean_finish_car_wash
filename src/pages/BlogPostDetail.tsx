@@ -90,29 +90,26 @@ export const BlogPostDetail = () => {
             <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 mt-20">
                 <div className="lg:col-span-8 space-y-12">
                     {/* Main Content */}
-                    <div className="prose prose-invert prose-2xl max-w-none">
-                        {post.content.split('\n\n').map((paragraph, i) => (
-                            <p key={i} className="text-xl text-white/70 leading-relaxed mb-8">
-                                {paragraph}
-                            </p>
-                        ))}
-                    </div>
-
-                    {/* Gallery Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
-                        {post.images.slice(1).map((img, i) => (
-                            <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group cursor-pointer"
-                            >
-                                <img src={img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={`Gallery ${i}`} />
-                                <div className="absolute inset-0 bg-racing-blue/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <Share2 className="text-white" size={32} />
-                                </div>
-                            </motion.div>
+                    <div className="space-y-16">
+                        {post.sections.map((section: any, i: number) => (
+                            <div key={i} className="space-y-8">
+                                <p className="text-xl text-white/70 leading-relaxed">
+                                    {section.text}
+                                </p>
+                                {section.image && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 group cursor-pointer"
+                                    >
+                                        <img src={section.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={`Scene ${i}`} />
+                                        <div className="absolute inset-0 bg-racing-blue/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                            <Share2 className="text-white" size={32} />
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </div>
                         ))}
                     </div>
 

@@ -10,12 +10,20 @@ export const blogPosts = [
     category: "Wash Tech",
     date: "MAR 10, 2026",
     author: "Pit Boss",
-    images: [
-      "/Blog Images/suddy BMW.png",
-      "/Blog Images/soaped up exhaust pipe.png",
-      "/Blog Images/manual tire spraying.png"
-    ],
-    content: "Ceramic coating isn't just a wax; it's a chemical evolution for your vehicle's surface. Unlike traditional polymers, our Nano-Ceramic technology creates a permanent or semi-permanent bond with the clear coat, forming an impenetrable barrier against environmental contaminants.\n\nFrom UV protection to extreme hydrophobicity, the benefits are immediate. Water beads off at angles as low as 10 degrees, taking dirt and road grime with it. This 'self-cleaning' property means your car stays cleaner for significantly longer between professional washes.\n\nIn this detailed look, we explore the molecular structure of our Formula-X coating and why Pineville's climate makes it an essential investment for any luxury or performance vehicle."
+    images: ["/Blog Images/suddy BMW.png", "/Blog Images/manual tire spraying.png", "/Blog Images/soaped up exhaust pipe.png"],
+    sections: [
+      {
+        text: "Ceramic coating isn't just a wax; it's a chemical evolution for your vehicle's surface. Unlike traditional polymers, our Nano-Ceramic technology creates a permanent or semi-permanent bond with the clear coat, forming an impenetrable barrier against environmental contaminants.",
+        image: "/Blog Images/manual tire spraying.png"
+      },
+      {
+        text: "From UV protection to extreme hydrophobicity, the benefits are immediate. Water beads off at angles as low as 10 degrees, taking dirt and road grime with it. This 'self-cleaning' property means your car stays cleaner for significantly longer between professional washes.",
+        image: "/Blog Images/soaped up exhaust pipe.png"
+      },
+      {
+        text: "In this detailed look, we explore the molecular structure of our Formula-X coating and why Pineville's climate makes it an essential investment for any luxury or performance vehicle."
+      }
+    ]
   },
   {
     id: 2,
@@ -23,12 +31,20 @@ export const blogPosts = [
     category: "Community",
     date: "MAR 05, 2026",
     author: "Admin",
-    images: [
-      "/Blog Images/Car in the wash.png",
-      "/Blog Images/Auto Carwash.png",
-      "/Blog Images/Rotational scrubber thing.png"
-    ],
-    content: "Most drivers focus on what they can see, but the real silent killer of a vehicle's longevity lies beneath. Louisiana's humidity and occasional road salts can lead to rapid oxidation on frame components and suspension links.\n\nOur G-Force Underbody Flush isn't a standard spray. Using 360-degree high-pressure oscillators, we reach into the tightest crevices of your drivetrain to blast away corrosive buildup that standard washes miss. \n\nWe've documented the impact of regular underbody maintenance on a fleet of local service vehicles, showing a 40% reduction in surface rust over a 24-month period. Learn how our precision sensors detect and target the most vulnerable areas of your specific chassis type."
+    images: ["/Blog Images/Car in the wash.png", "/Blog Images/Auto Carwash.png", "/Blog Images/Rotational scrubber thing.png"],
+    sections: [
+      {
+        text: "Most drivers focus on what they can see, but the real silent killer of a vehicle's longevity lies beneath. Louisiana's humidity and occasional road salts can lead to rapid oxidation on frame components and suspension links.",
+        image: "/Blog Images/Auto Carwash.png"
+      },
+      {
+        text: "Our G-Force Underbody Flush isn't a standard spray. Using 360-degree high-pressure oscillators, we reach into the tightest crevices of your drivetrain to blast away corrosive buildup that standard washes miss.",
+        image: "/Blog Images/Rotational scrubber thing.png"
+      },
+      {
+        text: "We've documented the impact of regular underbody maintenance on a fleet of local service vehicles, showing a 40% reduction in surface rust over a 24-month period. Learn how our precision sensors detect and target the most vulnerable areas of your specific chassis type."
+      }
+    ]
   },
   {
     id: 3,
@@ -36,12 +52,20 @@ export const blogPosts = [
     category: "Maintenance",
     date: "FEB 28, 2026",
     author: "Pit Boss",
-    images: [
-      "/Blog Images/Dusty _wash me car.png",
-      "/Blog Images/Auto Carwash (2).png",
-      "/Blog Images/nascar.png"
-    ],
-    content: "Pineville's pine pollen and red clay dust pose a unique challenge to automotive finishes. When left sitting, these organic and mineral particles can etch into the clear coat, creating micro-abrasions that dull the shine over time.\n\nOur seasonal strategy involves a multi-stage decontamination process. First, a pH-neutral pre-soak breaks the bond of stickier resins. Then, our soft-touch micro-fiber arrays gently lift the particles without creating 'swirl marks' common in many automated systems.\n\nFinally, we apply a temporary sealant that prevents new particles from bonding to the surface. It's about more than just looking good for a day; it's about protecting the value of your asset against the relentless Louisiana elements."
+    images: ["/Blog Images/Dusty _wash me car.png", "/Blog Images/Auto Carwash (2).png", "/Blog Images/nascar.png"],
+    sections: [
+      {
+        text: "Pineville's pine pollen and red clay dust pose a unique challenge to automotive finishes. When left sitting, these organic and mineral particles can etch into the clear coat, creating micro-abrasions that dull the shine over time.",
+        image: "/Blog Images/Auto Carwash (2).png"
+      },
+      {
+        text: "Our seasonal strategy involves a multi-stage decontamination process. First, a pH-neutral pre-soak breaks the bond of stickier resins. Then, our soft-touch micro-fiber arrays gently lift the particles without creating 'swirl marks' common in many automated systems.",
+        image: "/Blog Images/nascar.png"
+      },
+      {
+        text: "Finally, we apply a temporary sealant that prevents new particles from bonding to the surface. It's about more than just looking good for a day; it's about protecting the value of your asset against the relentless Louisiana elements."
+      }
+    ]
   }
 ];
 
@@ -172,48 +196,48 @@ export const PitStop = () => {
             </div>
           </Link>
         </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-12">
-          <div>
-            <h2 className="font-display font-black text-5xl italic uppercase tracking-tighter mb-4">
-              THE <span className="text-racing-blue">PIT</span> <span className="text-neon-green">STOP</span>
-            </h2>
-            <p className="text-white/50 font-bold uppercase tracking-widest">Latest news from the garage.</p>
-          </div>
-
-          <div className="flex flex-wrap gap-4">
-            {categories.map((cat, i) => (
-              <button
-                key={cat}
-                className={`px-6 py-2 rounded-full font-display font-black text-[10px] uppercase tracking-widest transition-all ${cat === 'All'
-                  ? 'bg-racing-blue text-white'
-                  : i % 2 === 0
-                    ? 'glass text-white hover:bg-neon-green/10 border border-neon-green/20'
-                    : 'glass text-white hover:bg-racing-blue/10 border border-racing-blue/20'
-                  }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map(post => (
-            <BlogCard key={post.id} post={post} />
-          ))}
-
-          {/* Empty Card Template for Future Posts */}
-          <div className="glass rounded-[32px] border border-dashed border-white/20 flex flex-col items-center justify-center p-12 text-center space-y-4 opacity-50 hover:opacity-100 transition-opacity">
-            <div className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center">
-              <ArrowRight className="text-white/20" size={32} />
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-12">
+            <div>
+              <h2 className="font-display font-black text-5xl italic uppercase tracking-tighter mb-4">
+                THE <span className="text-racing-blue">PIT</span> <span className="text-neon-green">STOP</span>
+              </h2>
+              <p className="text-white/50 font-bold uppercase tracking-widest">Latest news from the garage.</p>
             </div>
-            <h4 className="font-display font-black text-xl uppercase italic">Next Lap Coming Soon</h4>
-            <p className="text-[10px] font-black uppercase tracking-widest text-white/40">Stay tuned for more high-octane content.</p>
+
+            <div className="flex flex-wrap gap-4">
+              {categories.map((cat, i) => (
+                <button
+                  key={cat}
+                  className={`px-6 py-2 rounded-full font-display font-black text-[10px] uppercase tracking-widest transition-all ${cat === 'All'
+                    ? 'bg-racing-blue text-white'
+                    : i % 2 === 0
+                      ? 'glass text-white hover:bg-neon-green/10 border border-neon-green/20'
+                      : 'glass text-white hover:bg-racing-blue/10 border border-racing-blue/20'
+                    }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map(post => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+
+            {/* Empty Card Template for Future Posts */}
+            <div className="glass rounded-[32px] border border-dashed border-white/20 flex flex-col items-center justify-center p-12 text-center space-y-4 opacity-50 hover:opacity-100 transition-opacity">
+              <div className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center">
+                <ArrowRight className="text-white/20" size={32} />
+              </div>
+              <h4 className="font-display font-black text-xl uppercase italic">Next Lap Coming Soon</h4>
+              <p className="text-[10px] font-black uppercase tracking-widest text-white/40">Stay tuned for more high-octane content.</p>
+            </div>
           </div>
         </div>
+      </section>
     </div>
-      </section >
-    </div >
   );
 };
