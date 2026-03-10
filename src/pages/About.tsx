@@ -9,14 +9,12 @@ export const About = () => {
       {/* Hero Lore Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 overflow-hidden border-b-2 border-white/5">
         <div className="absolute inset-0 z-0">
-          <motion.img
+          <motion.div
             initial={{ scale: 1.05 }}
             animate={{ scale: 1 }}
             transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
-            src="/Images/The_washing_place_at_night.jpg.webp"
-            className="w-full h-full object-cover opacity-60 mix-blend-overlay"
-            alt="Clean Finish Facility"
-            referrerPolicy="no-referrer"
+            className="w-full h-full bg-cover bg-center bg-fixed opacity-60 mix-blend-overlay"
+            style={{ backgroundImage: `url('/Images/The_washing_place_at_night.jpg.webp')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
           <div className="absolute inset-0 checkered-bg opacity-10 pointer-events-none" />

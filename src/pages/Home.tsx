@@ -11,11 +11,9 @@ export const Hero = () => {
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0 bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 via-80% to-black z-10" />
-        <img
-          src="/Images/PickYourCarWash.jpg.webp"
-          alt="Clean Finish Car Wash"
-          className="w-full h-full object-cover opacity-60 scale-100"
-          referrerPolicy="no-referrer"
+        <div
+          className="w-full h-full bg-cover bg-center bg-fixed opacity-60"
+          style={{ backgroundImage: `url('/Images/PickYourCarWash.jpg.webp')` }}
         />
         {/* race car ambient lines */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-20">
@@ -43,10 +41,7 @@ export const Hero = () => {
           transition={{ duration: 0.8 }}
           className="overflow-visible"
         >
-          <div className="inline-flex items-center gap-2 bg-racing-blue/10 border border-racing-blue/30 px-4 py-1 rounded-full mb-8">
-            <Trophy className="text-racing-blue" size={16} />
-            <span className="text-xs font-black uppercase tracking-[0.3em] text-racing-blue">Pineville's #1 Pit Stop</span>
-          </div>
+
 
           <h1 className="font-display font-black text-5xl md:text-7xl lg:text-8xl uppercase leading-[0.8] mb-12 overflow-visible">
             <span className="italic inline-block">ULTIMATE</span> <br />
