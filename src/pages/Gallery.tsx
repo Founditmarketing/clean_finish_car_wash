@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, Droplets, Zap, Search } from 'lucide-react';
 
 export const galleryItems = [
-  { id: 1, image: "/Images/TheCarWash.jpg", title: "The Ultimate Facility", category: "Facility" },
+  { id: 1, image: "/Images/The_washing_place_at_night.jpg.webp", title: "The Ultimate Facility", category: "Facility" },
   { id: 3, image: "/Images/TruckInTheWash.jpg", title: "Heavy Duty Rinse", category: "Tunnel" },
   { id: 4, image: "/Images/WetTruck.jpg", title: "Deep Gloss Finish", category: "Finish" },
   { id: 5, image: "/Images/inside_the_scrubbers.jpg", title: "Precision Cleaning", category: "Tunnel" },
