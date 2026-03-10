@@ -7,7 +7,7 @@ export const galleryItems = [
   { id: 3, image: "/Images/TruckInTheWash.jpg", title: "Heavy Duty Rinse", category: "Tunnel" },
   { id: 4, image: "/Images/WetTruck.jpg", title: "Deep Gloss Finish", category: "Finish" },
   { id: 5, image: "/Images/inside_the_scrubbers.jpg", title: "Precision Cleaning", category: "Tunnel" },
-  { id: 6, image: "/Images/The_washing_place_at_night.jpg.webp", title: "Midnight Polish", category: "Facility" },
+  { id: 6, image: "/Images/Clean Finish.jpg", title: "Flawless Shine", category: "Finish" },
   { id: 11, image: "/Images/Photo Feb 05, 9 13 06 AM.jpg", title: "Morning Prep", category: "Facility" },
   { id: 12, image: "/Images/PickYourCarWash.jpg.webp", title: "The Choice Is Yours", category: "Facility" },
   { id: 13, image: "/Images/unnamed-9.jpg", title: "Gleaming Results", category: "Finish" },
