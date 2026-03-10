@@ -342,23 +342,33 @@ export const Home = () => {
 export const WashMenu = () => {
   const packages = [
     {
-      name: "The Sprint",
-      price: "$6",
-      features: ["Basic Wash", "Power Dry", "Free Vacuums"],
+      name: "Basic Clean",
+      monthlyPrice: "$19.99",
+      singlePrice: "$9.99",
+      features: ["Exterior Wash", "Dry"],
       color: "white"
     },
     {
-      name: "The Grand Prix",
-      price: "$10",
-      features: ["Tire Shine", "Undercarriage Flush", "Triple Foam", "Free Vacuums"],
+      name: "Express Clean",
+      monthlyPrice: "$24.99",
+      singlePrice: "$13.99",
+      features: ["Basic Clean Plus", "Tire Shine", "Wheel & Tire Cleaner"],
       color: "racing-blue"
     },
     {
-      name: "The Championship",
-      price: "$15",
-      features: ["Ceramic Shield", "Rain Repellent", "Wheel Brightener", "Mat Cleaners", "Free Vacuums"],
+      name: "Deluxe Clean",
+      monthlyPrice: "$32.99",
+      singlePrice: "$18.99",
+      features: ["Express Clean Plus", "Ceramic Rain Bath", "Tire Shine", "Wheel & Tire Shine", "Turbo Dry"],
       color: "neon-green",
       featured: true
+    },
+    {
+      name: "Extreme Clean",
+      monthlyPrice: "$39.99",
+      singlePrice: "$23.99",
+      features: ["Ceramic Layering Technology", "Includes Everything", "Deluxe Clean Plus"],
+      color: "racing-blue"
     }
   ];
 
@@ -375,39 +385,42 @@ export const WashMenu = () => {
             <p className="text-white/50 font-bold uppercase tracking-widest">Pick your pace. Win the race.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
             {packages.map((pkg, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -20 }}
-                className={`relative p-10 rounded-3xl border-2 transition-all duration-500 ${pkg.featured
+                className={`relative p-8 rounded-3xl border-2 transition-all duration-500 flex flex-col ${pkg.featured
                   ? 'bg-racing-blue/5 border-racing-blue shadow-[0_0_50px_rgba(0,102,255,0.1)]'
                   : 'bg-white/5 border-white/10 hover:border-neon-green'
                   }`}
               >
                 {pkg.featured && (
                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-racing-blue text-white px-6 py-1 rounded-full font-display font-black text-[10px] uppercase tracking-widest">
-                    Most Popular
+                    Best Value
                   </div>
                 )}
 
-                <h3 className="font-display font-black text-3xl uppercase italic mb-2">{pkg.name}</h3>
-                <div className="text-5xl font-display font-black text-white mb-8">{pkg.price}</div>
+                <h3 className="font-display font-black text-2xl uppercase italic mb-2 tracking-tighter">{pkg.name}</h3>
+                <div className="mb-6">
+                  <div className="text-4xl font-display font-black text-white">{pkg.monthlyPrice}<span className="text-xs text-white/40 ml-1 italic">/MO</span></div>
+                  <div className="text-sm font-bold text-white/40 uppercase tracking-widest mt-1">Or {pkg.singlePrice} Single</div>
+                </div>
 
-                <ul className="space-y-4 mb-10">
+                <ul className="space-y-3 mb-10 flex-grow">
                   {pkg.features.map((feat, j) => (
-                    <li key={j} className="flex items-center gap-3 text-sm font-bold text-white/70">
-                      <CheckCircle2 size={16} className={pkg.featured ? 'text-racing-blue' : 'text-neon-green'} />
+                    <li key={j} className="flex items-start gap-3 text-[11px] font-bold text-white/70 leading-tight">
+                      <CheckCircle2 size={14} className={`flex-shrink-0 mt-0.5 ${pkg.featured ? 'text-racing-blue' : 'text-neon-green'}`} />
                       {feat}
                     </li>
                   ))}
                 </ul>
 
-                <button className={`w-full py-4 rounded-xl font-display font-black uppercase tracking-widest transition-all ${pkg.featured
+                <button className={`w-full py-4 rounded-xl font-display font-black uppercase tracking-widest text-xs transition-all ${pkg.featured
                   ? 'bg-racing-blue text-white shadow-lg shadow-racing-blue/40'
                   : 'glass text-white hover:bg-white/20 border border-racing-blue/20'
                   }`}>
-                  Select Package
+                  Select Pack
                 </button>
               </motion.div>
             ))}
@@ -494,37 +507,26 @@ export const CeramicShield = () => {
               ))}
             </div>
 
-            <div className="mt-16 flex items-center gap-8">
-              <div className="flex -space-x-4">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="w-12 h-12 rounded-full border-4 border-black bg-neutral-800 overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" />
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="text-white font-bold text-sm">Join 2,500+ Monthly Members</p>
-                <p className="text-white/40 text-xs font-bold uppercase tracking-widest">Louisiana's Most Trusted Shield</p>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
+    </div>
+      </div >
 
-      {/* Dynamic Light Sweep */}
-      <motion.div
-        animate={{
-          x: ['-100%', '200%'],
-          opacity: [0, 0.3, 0]
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-          repeatDelay: 2
-        }}
-        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
-      />
-    </section>
+  {/* Dynamic Light Sweep */ }
+  < motion.div
+animate = {{
+  x: ['-100%', '200%'],
+    opacity: [0, 0.3, 0]
+}}
+transition = {{
+  duration: 3,
+    repeat: Infinity,
+      ease: "easeInOut",
+        repeatDelay: 2
+}}
+className = "absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+  />
+    </section >
   );
 };
