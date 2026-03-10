@@ -6,6 +6,7 @@ import { About } from './pages/About';
 import { Gallery } from './pages/Gallery';
 import { Contact } from './pages/Contact';
 import { PitStop } from './pages/PitStop';
+import { BlogPostDetail } from './pages/BlogPostDetail';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -23,7 +24,7 @@ export default function App() {
       <div className="relative min-h-screen font-sans selection:bg-neon-blue selection:text-black">
         <ScrollToTop />
         <Navbar />
-        
+
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/menu" element={<WashMenu />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/pitstop" element={<PitStop />} />
+            <Route path="/pitstop/:id" element={<BlogPostDetail />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
