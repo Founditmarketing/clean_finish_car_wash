@@ -11,9 +11,9 @@ export const Hero = () => {
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black z-10" />
-        <img 
-          src="https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&q=80&w=2070" 
-          alt="Car Wash Tunnel"
+        <img
+          src="/Images/PickYourCarWash.jpg.webp"
+          alt="Clean Finish Car Wash"
           className="w-full h-full object-cover opacity-40 scale-110"
           referrerPolicy="no-referrer"
         />
@@ -23,8 +23,8 @@ export const Hero = () => {
             <motion.div
               key={i}
               className="absolute bg-white/20 rounded-full blur-xl"
-              initial={{ 
-                width: Math.random() * 100 + 50, 
+              initial={{
+                width: Math.random() * 100 + 50,
                 height: Math.random() * 100 + 50,
                 x: Math.random() * 100 + '%',
                 y: '110%'
@@ -55,14 +55,14 @@ export const Hero = () => {
             <Trophy className="text-racing-blue" size={16} />
             <span className="text-xs font-black uppercase tracking-[0.3em] text-racing-blue">Pineville's #1 Pit Stop</span>
           </div>
-          
+
           <h1 className="font-display font-black text-6xl md:text-8xl lg:text-9xl uppercase leading-[0.8] mb-12 overflow-visible">
             <span className="italic inline-block">ULTIMATE</span> <br />
             <span className="italic inline-block text-transparent bg-clip-text bg-gradient-to-r from-racing-blue via-white to-neon-green pb-4 tracking-normal">
               CLEAN FINISH
             </span>
           </h1>
-          
+
           <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/70 font-medium mb-12 leading-relaxed">
             Experience the high-octane shine with our Ceramic Layering Technology and 100% Wash Guarantee.
           </p>
@@ -123,7 +123,7 @@ export const MiniGallery = () => {
           </div>
         </div>
 
-        <div 
+        <div
           ref={scrollRef}
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8"
         >
@@ -176,7 +176,7 @@ export const MiniPitStop = () => {
           </div>
         </div>
 
-        <div 
+        <div
           ref={scrollRef}
           className="flex gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-8"
         >
@@ -235,7 +235,7 @@ export const WashMenu = () => {
     <div className="pt-20 bg-black">
       <section id="menu" className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 checkered-bg opacity-5" />
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <h2 className="font-display font-black text-5xl md:text-7xl italic uppercase tracking-tighter mb-4">
@@ -249,21 +249,20 @@ export const WashMenu = () => {
               <motion.div
                 key={i}
                 whileHover={{ y: -20 }}
-                className={`relative p-10 rounded-3xl border-2 transition-all duration-500 ${
-                  pkg.featured 
-                    ? 'bg-racing-blue/5 border-racing-blue shadow-[0_0_50px_rgba(0,102,255,0.1)]' 
-                    : 'bg-white/5 border-white/10 hover:border-neon-green'
-                }`}
+                className={`relative p-10 rounded-3xl border-2 transition-all duration-500 ${pkg.featured
+                  ? 'bg-racing-blue/5 border-racing-blue shadow-[0_0_50px_rgba(0,102,255,0.1)]'
+                  : 'bg-white/5 border-white/10 hover:border-neon-green'
+                  }`}
               >
                 {pkg.featured && (
                   <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-racing-blue text-white px-6 py-1 rounded-full font-display font-black text-[10px] uppercase tracking-widest">
                     Most Popular
                   </div>
                 )}
-                
+
                 <h3 className="font-display font-black text-3xl uppercase italic mb-2">{pkg.name}</h3>
                 <div className="text-5xl font-display font-black text-white mb-8">{pkg.price}</div>
-                
+
                 <ul className="space-y-4 mb-10">
                   {pkg.features.map((feat, j) => (
                     <li key={j} className="flex items-center gap-3 text-sm font-bold text-white/70">
@@ -273,11 +272,10 @@ export const WashMenu = () => {
                   ))}
                 </ul>
 
-                <button className={`w-full py-4 rounded-xl font-display font-black uppercase tracking-widest transition-all ${
-                  pkg.featured 
-                    ? 'bg-racing-blue text-white shadow-lg shadow-racing-blue/40' 
-                    : 'glass text-white hover:bg-white/20 border border-racing-blue/20'
-                }`}>
+                <button className={`w-full py-4 rounded-xl font-display font-black uppercase tracking-widest transition-all ${pkg.featured
+                  ? 'bg-racing-blue text-white shadow-lg shadow-racing-blue/40'
+                  : 'glass text-white hover:bg-white/20 border border-racing-blue/20'
+                  }`}>
                   Select Package
                 </button>
               </motion.div>
@@ -304,7 +302,7 @@ export const CeramicShield = () => {
     <section className="py-32 bg-deep-black relative overflow-hidden border-y border-white/5">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-racing-blue/5 blur-[150px] rounded-full" />
       <div className="absolute bottom-0 left-0 w-1/2 h-full bg-neon-green/5 blur-[150px] rounded-full" />
-      
+
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -322,7 +320,7 @@ export const CeramicShield = () => {
           <p className="text-white/70 text-lg leading-relaxed mb-10">
             Our state-of-the-art ceramic layering technology creates a microscopic bond with your vehicle's paint, providing an impenetrable barrier against UV rays, dirt, and Louisiana's toughest grime.
           </p>
-          
+
           <div className="grid grid-cols-2 gap-6">
             {[
               { icon: <Droplets className="text-racing-blue" />, title: "Hydrophobic", desc: "Water beads off instantly" },
@@ -341,15 +339,15 @@ export const CeramicShield = () => {
 
         <div className="relative">
           <motion.div
-            animate={{ 
+            animate={{
               rotate: [0, 5, 0, -5, 0],
               y: [0, -20, 0]
             }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
             className="relative z-10"
           >
-            <img 
-              src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=80&w=1000" 
+            <img
+              src="/Images/Clean Finish.jpg"
               alt="Shiny Car"
               className="rounded-3xl shadow-2xl shadow-racing-blue/20 border-2 border-racing-blue"
               referrerPolicy="no-referrer"

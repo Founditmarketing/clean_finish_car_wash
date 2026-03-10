@@ -9,7 +9,7 @@ export const blogPosts = [
     category: "Wash Tech",
     date: "MAR 10, 2026",
     author: "Pit Boss",
-    image: "https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/Clean_lambo.jpg"
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const blogPosts = [
     category: "Community",
     date: "MAR 05, 2026",
     author: "Admin",
-    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/employeeIthink-7.jpg"
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ export const blogPosts = [
     category: "Maintenance",
     date: "FEB 28, 2026",
     author: "Pit Boss",
-    image: "https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/Hoses.jpg.webp"
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export const blogPosts = [
     category: "Wash Tech",
     date: "FEB 20, 2026",
     author: "Tech Team",
-    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=800"
+    image: "/Images/unnamed-9.jpg"
   }
 ];
 
@@ -48,8 +48,8 @@ export const BlogCard = ({ post }: any) => {
       className="glass rounded-[32px] overflow-hidden border border-white/10 group h-full"
     >
       <div className="relative h-64 overflow-hidden">
-        <img 
-          src={post.image} 
+        <img
+          src={post.image}
           alt={post.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           referrerPolicy="no-referrer"
@@ -57,11 +57,11 @@ export const BlogCard = ({ post }: any) => {
         <div className="absolute top-6 left-6 bg-racing-blue text-white px-4 py-1 rounded-full font-display font-black text-[10px] uppercase tracking-widest">
           {post.category}
         </div>
-        
+
         {/* Speedometer Hover Effect */}
         <div className={`absolute bottom-6 right-6 w-16 h-16 glass rounded-full flex items-center justify-center transition-all duration-500 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
           <div className="relative w-10 h-10 border-2 border-neon-green rounded-full border-b-transparent">
-            <motion.div 
+            <motion.div
               className="absolute top-1/2 left-1/2 w-0.5 h-4 bg-neon-green origin-bottom -translate-x-1/2 -translate-y-full"
               initial={{ rotate: -120 }}
               animate={isHovered ? { rotate: 120 } : { rotate: -120 }}
@@ -82,11 +82,11 @@ export const BlogCard = ({ post }: any) => {
             {post.author}
           </div>
         </div>
-        
+
         <h3 className="font-display font-black text-2xl uppercase italic tracking-tighter leading-tight group-hover:text-racing-blue transition-colors">
           {post.title}
         </h3>
-        
+
         <button className="flex items-center gap-2 font-display font-black text-[10px] uppercase tracking-[0.3em] text-neon-green group-hover:gap-4 transition-all">
           Read Full Lap <ArrowRight size={14} />
         </button>
@@ -102,18 +102,18 @@ export const PitStop = () => {
     <div className="pt-20 bg-deep-black">
       <section className="py-32 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-2 checkered-bg opacity-10" />
-        
+
         <div className="max-w-7xl mx-auto px-6">
           {/* Featured Hero */}
           <div className="relative rounded-[40px] overflow-hidden mb-20 aspect-[21/9] flex items-end p-12 group cursor-pointer">
-            <img 
-              src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=2000" 
+            <img
+              src="/Images/The_washing_place_at_night.jpg.webp"
               alt="Featured Post"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-            
+
             <div className="relative z-10 max-w-2xl space-y-6">
               <div className="flex items-center gap-3">
                 <div className="bg-racing-blue text-white px-4 py-1 rounded-full font-display font-black text-[10px] uppercase tracking-widest">
@@ -142,18 +142,17 @@ export const PitStop = () => {
               </h2>
               <p className="text-white/50 font-bold uppercase tracking-widest">Latest news from the garage.</p>
             </div>
-            
+
             <div className="flex flex-wrap gap-4">
               {categories.map((cat, i) => (
                 <button
                   key={cat}
-                  className={`px-6 py-2 rounded-full font-display font-black text-[10px] uppercase tracking-widest transition-all ${
-                    cat === 'All' 
-                      ? 'bg-racing-blue text-white' 
-                      : i % 2 === 0 
-                        ? 'glass text-white hover:bg-neon-green/10 border border-neon-green/20'
-                        : 'glass text-white hover:bg-racing-blue/10 border border-racing-blue/20'
-                  }`}
+                  className={`px-6 py-2 rounded-full font-display font-black text-[10px] uppercase tracking-widest transition-all ${cat === 'All'
+                    ? 'bg-racing-blue text-white'
+                    : i % 2 === 0
+                      ? 'glass text-white hover:bg-neon-green/10 border border-neon-green/20'
+                      : 'glass text-white hover:bg-racing-blue/10 border border-racing-blue/20'
+                    }`}
                 >
                   {cat}
                 </button>
@@ -165,7 +164,7 @@ export const PitStop = () => {
             {blogPosts.map(post => (
               <BlogCard key={post.id} post={post} />
             ))}
-            
+
             {/* Empty Card Template for Future Posts */}
             <div className="glass rounded-[32px] border border-dashed border-white/20 flex flex-col items-center justify-center p-12 text-center space-y-4 opacity-50 hover:opacity-100 transition-opacity">
               <div className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center">

@@ -10,7 +10,7 @@ export const About = () => {
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
           <div className="absolute inset-0 checkered-bg" />
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-32">
             <motion.div
@@ -21,8 +21,8 @@ export const About = () => {
             >
               <div className="absolute -inset-4 border-2 border-racing-blue/20 rounded-[40px] rotate-3" />
               <div className="relative rounded-[40px] overflow-hidden border-2 border-white/10 shadow-2xl shadow-racing-blue/20">
-                <img 
-                  src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&q=80&w=1000" 
+                <img
+                  src="/Images/employeeIthink-7.jpg"
                   alt="Clean Finish Team"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-105 hover:scale-100"
                   referrerPolicy="no-referrer"
@@ -61,21 +61,21 @@ export const About = () => {
           {/* Core Values Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
             {[
-              { 
-                icon: <Heart className="text-racing-blue" size={40} />, 
-                title: "Our Mission", 
+              {
+                icon: <Heart className="text-racing-blue" size={40} />,
+                title: "Our Mission",
                 desc: "To provide the ultimate customer experience beginning with a positive attitude and ending with quality results.",
                 border: "border-racing-blue/30"
               },
-              { 
-                icon: <Shield className="text-neon-green" size={40} />, 
-                title: "Our Values", 
+              {
+                icon: <Shield className="text-neon-green" size={40} />,
+                title: "Our Values",
                 desc: "We serve God by serving others with honesty and integrity. We are consistent, reliable, and always transparent.",
                 border: "border-neon-green/30"
               },
-              { 
-                icon: <Users className="text-racing-blue" size={40} />, 
-                title: "Community First", 
+              {
+                icon: <Users className="text-racing-blue" size={40} />,
+                title: "Community First",
                 desc: "We support our local heroes with FREE washes for marked police vehicles. Pineville is our home, and we protect it.",
                 border: "border-racing-blue/30"
               }
@@ -104,7 +104,7 @@ export const About = () => {
       {/* Why Trust Us Section */}
       <section className="py-32 bg-deep-black relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-        
+
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <h2 className="font-display font-black text-5xl md:text-7xl italic uppercase tracking-tighter mb-4">
@@ -115,25 +115,25 @@ export const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { 
-                icon: <CheckCircle2 className="text-neon-green" />, 
-                title: "100% Guarantee", 
-                desc: "Not satisfied? We'll send you through again for free. No questions, no friction." 
+              {
+                icon: <CheckCircle2 className="text-neon-green" />,
+                title: "100% Guarantee",
+                desc: "Not satisfied? We'll send you through again for free. No questions, no friction."
               },
-              { 
-                icon: <Zap className="text-racing-blue" />, 
-                title: "Advanced Tech", 
-                desc: "Dual-wheel mat cleaners and ceramic tech you won't find at a standard wash." 
+              {
+                icon: <Zap className="text-racing-blue" />,
+                title: "Advanced Tech",
+                desc: "Dual-wheel mat cleaners and ceramic tech you won't find at a standard wash."
               },
-              { 
-                icon: <Droplets className="text-neon-green" />, 
-                title: "Eco-Friendly", 
-                desc: "We reclaim and filter our water, protecting Louisiana's natural beauty." 
+              {
+                icon: <Droplets className="text-neon-green" />,
+                title: "Eco-Friendly",
+                desc: "We reclaim and filter our water, protecting Louisiana's natural beauty."
               },
-              { 
-                icon: <Shield className="text-racing-blue" />, 
-                title: "Paint Safe", 
-                desc: "Our closed-cell foam brushes are gentler than a hand wash and never hold grit." 
+              {
+                icon: <Shield className="text-racing-blue" />,
+                title: "Paint Safe",
+                desc: "Our closed-cell foam brushes are gentler than a hand wash and never hold grit."
               }
             ].map((trust, i) => (
               <motion.div
@@ -173,7 +173,7 @@ export const About = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="glass p-10 rounded-[40px] border border-neon-green/20 flex flex-col justify-center items-center text-center space-y-6">
               <div className="w-20 h-20 bg-neon-green/10 rounded-full flex items-center justify-center">
                 <Sparkles className="text-neon-green" size={32} />
@@ -197,8 +197,8 @@ export const About = () => {
               { label: "Gallons Saved", value: "1.2M", color: "text-racing-blue", icon: <Droplets size={20} /> },
               { label: "Police Washes", value: "FREE", color: "text-neon-green", icon: <Shield size={20} /> }
             ].map((stat, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
