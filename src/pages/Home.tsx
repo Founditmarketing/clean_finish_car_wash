@@ -510,23 +510,21 @@ export const CeramicShield = () => {
           </motion.div>
         </div>
       </div>
-    </div>
-      </div >
 
-  {/* Dynamic Light Sweep */ }
-  < motion.div
-animate = {{
-  x: ['-100%', '200%'],
-    opacity: [0, 0.3, 0]
-}}
-transition = {{
-  duration: 3,
-    repeat: Infinity,
-      ease: "easeInOut",
-        repeatDelay: 2
-}}
-className = "absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
-  />
-    </section >
+      {/* Dynamic Light Sweep */}
+      <motion.div
+        animate={{
+          x: ['-100%', '200%'],
+          opacity: [0, 0.3, 0]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          repeatDelay: 2
+        }}
+        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+      />
+    </section>
   );
 };
