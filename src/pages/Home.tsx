@@ -197,10 +197,133 @@ export const MiniPitStop = () => {
   );
 };
 
+export const WashProducts = () => {
+  const [activeId, setActiveId] = React.useState<number | null>(null);
+
+  const products = [
+    {
+      id: 1,
+      name: "Ceramic Shield",
+      image: "/Images/Clean Finish.jpg",
+      description: "Advanced nanotechnology that creates a diamond-hard barrier on your paint.",
+      longDesc: "Our Ceramic Shield is not just a wax—it's a chemical bond. It provides 30 days of extreme hydrophobic protection, high-gloss shine, and UV resistance. It fills microscopic imperfections in your clear coat for a mirror-like finish that repels water and grime instantly."
+    },
+    {
+      id: 2,
+      name: "Triple Foam",
+      image: "/Images/inside_the_scrubbers.jpg",
+      description: "Ph-balanced conditioners that penetrate deep into surface grime.",
+      longDesc: "The Triple Foam process uses three distinct cleaning agents that work in horizontal layers. It breaks down road film and organic contaminants without stripping existing protection. Plus, the vibrant colors and cherry scent make it a fan favorite in the tunnel."
+    },
+    {
+      id: 3,
+      name: "Tire Shine",
+      image: "/Images/Clean_lambo.jpg",
+      description: "Precision-applied gloss that protects and beautifies your rubber.",
+      longDesc: "Our automated tire shine system uses rotating brushes to apply a non-sling, water-based dressing. It protects against sidewall cracking and UV damage while leaving a deep, 'wet' look that lasts for weeks. No mess, no overspray, just perfect tires."
+    },
+    {
+      id: 4,
+      name: "Wheel Brightener",
+      image: "/Images/unnamed-9.jpg",
+      description: "Industrial strength busters for tough brake dust and road tar.",
+      longDesc: "Our Wheel Brightener is safe for all factory finishes but tough on brake dust. It uses a high-cling formula that dwells on the wheel surface, dissolving metallic deposits and carbon dust. We follow it with a high-pressure rinse that leaves your rims looking brand new."
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-black overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="mb-12">
+          <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter">
+            WASH <span className="text-racing-blue">PRODUCTS</span>
+          </h2>
+          <p className="text-white/50 font-bold uppercase tracking-widest mt-2">The fuel for your vehicle's shine.</p>
+        </div>
+
+        <div className="relative h-[400px] flex gap-4">
+          {products.map((product) => {
+            const isActive = activeId === product.id;
+            return (
+              <motion.div
+                key={product.id}
+                onMouseDown={() => setActiveId(product.id)}
+                onMouseUp={() => setActiveId(null)}
+                // onMouseLeave={() => setActiveId(null)} // Uncomment if you want it to close when mouse leaves
+                layout
+                initial={false}
+                animate={{
+                  width: isActive ? '100%' : '25%',
+                  x: isActive ? (activeId === 1 ? 0 : activeId === 2 ? -312 : activeId === 3 ? -624 : -936) : 0,
+                  zIndex: isActive ? 50 : 10
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className={`relative h-full rounded-3xl overflow-hidden border-2 cursor-pointer transition-colors duration-300 ${isActive ? 'border-neon-green' : 'border-white/10 hover:border-racing-blue'
+                  }`}
+              >
+                {/* Background Image */}
+                <div className="absolute inset-0 z-0">
+                  <img src={product.image} className="w-full h-full object-cover opacity-60" alt={product.name} />
+                  <div className="absolute inset-0 bg-black/40" />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 p-8 h-full flex flex-col">
+                  <h3 className="font-display font-black text-2xl uppercase italic mb-4">{product.name}</h3>
+
+                  {/* Small Description (always on or hover) */}
+                  {!isActive && (
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      className="text-xs font-bold uppercase tracking-wider text-white/80"
+                    >
+                      {product.description}
+                    </motion.p>
+                  )}
+
+                  {/* Expanded Card Content */}
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="mt-4 max-w-2xl"
+                    >
+                      <p className="text-lg font-medium text-white/90 leading-relaxed mb-6">
+                        {product.longDesc}
+                      </p>
+                      <div className="flex gap-4">
+                        <div className="px-4 py-2 bg-neon-green/20 border border-neon-green/50 rounded-full text-[10px] font-black uppercase text-neon-green">
+                          Eco-Safe
+                        </div>
+                        <div className="px-4 py-2 bg-racing-blue/20 border border-racing-blue/50 rounded-full text-[10px] font-black uppercase text-racing-blue">
+                          Pro-Grade
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+
+                {/* Vertical Text when compact */}
+                {!isActive && (
+                  <div className="absolute bottom-12 right-6 origin-bottom-right rotate-[-90deg] whitespace-nowrap opacity-20 group-hover:opacity-40 transition-opacity">
+                    <span className="font-display font-black text-4xl uppercase italic">{product.name}</span>
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 export const Home = () => {
   return (
     <main>
       <Hero />
+      <WashProducts />
       <MiniGallery />
       <MiniPitStop />
       <CeramicShield />
@@ -244,7 +367,7 @@ export const WashMenu = () => {
             <p className="text-white/50 font-bold uppercase tracking-widest">Pick your pace. Win the race.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
             {packages.map((pkg, i) => (
               <motion.div
                 key={i}
@@ -281,6 +404,8 @@ export const WashMenu = () => {
               </motion.div>
             ))}
           </div>
+
+          <WashProducts />
 
           <div className="mt-20 glass p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10 shadow-[0_0_30px_rgba(57,255,20,0.05)]">
             <div>
