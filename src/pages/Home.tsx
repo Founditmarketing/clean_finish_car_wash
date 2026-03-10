@@ -493,84 +493,116 @@ export const WashMenu = () => {
 export const CeramicShield = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center bg-black overflow-hidden py-20 md:py-32">
-      {/* Cinematic Background Image */}
-      <div className="absolute inset-0 z-0 btn-glint">
-        <div className="absolute inset-0 bg-black/60 md:bg-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 z-10" />
+
+      {/* Mobile-Only Background Image - Hidden on Desktop */}
+      <div className="absolute inset-0 z-0 md:hidden">
+        {/* Dark Tint for Readability */}
+        <div className="absolute inset-0 bg-black/70 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30 z-10" />
         <img
           src="/Images/CeramicGlossRedesign.png"
           alt="Premium Ceramic Gloss"
-          className="w-full h-full object-cover opacity-80"
+          className="w-full h-full object-cover opacity-100"
         />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
-        <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="flex items-center gap-3 text-racing-blue mb-8">
-              <div className="w-12 h-12 rounded-xl bg-racing-blue/10 border border-racing-blue/20 flex items-center justify-center">
-                <Shield size={24} className="fill-current" />
-              </div>
-              <span className="font-display font-black uppercase tracking-[0.4em] text-xs">Ceramic Layering Tech</span>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-            <h2 className="font-display font-black text-5xl md:text-8xl italic uppercase leading-[0.85] mb-8 text-white">
-              THE <span className="text-racing-blue">CERAMIC</span> <br />
-              <span className="text-neon-green">SHIELD</span>
-            </h2>
-
-            <p className="text-white/70 text-xl leading-relaxed mb-12 font-medium">
-              Our state-of-the-art ceramic layering technology creates a microscopic bond with your vehicle's paint, providing an impenetrable barrier against UV rays, dirt, and the toughest Louisiana grime.
-            </p>
-
-            <div className="grid grid-cols-2 gap-x-12 gap-y-10">
-              {[
-                { icon: <Droplets className="text-racing-blue" />, title: "Hydrophobic", desc: "Water beads off instantly" },
-                { icon: <Sparkles className="text-neon-green" />, title: "Deep Gloss", desc: "Showroom mirror finish" },
-                { icon: <Wind className="text-racing-blue" />, title: "UV Protection", desc: "Prevents paint fading" },
-                { icon: <Shield className="text-neon-green" />, title: "Hardness", desc: "Resists minor scratches" }
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + (i * 0.1) }}
-                  className="space-y-3"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-display font-black uppercase text-sm tracking-widest text-white">{item.title}</h4>
-                    <p className="text-[11px] text-white/40 font-bold uppercase mt-1">{item.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
+          {/* Text Content Column */}
+          <div className="max-w-xl py-10 md:py-0">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="mt-16"
+              transition={{ duration: 0.8 }}
             >
-              <Link to="/contact">
-                <button className="btn-glint bg-racing-blue text-white px-12 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/40 flex items-center gap-4 group w-full sm:w-auto justify-center">
-                  Protect Your Ride
-                  <ArrowRight className="group-hover:translate-x-2 transition-transform" />
-                </button>
-              </Link>
-            </motion.div>
+              <div className="flex items-center gap-3 text-racing-blue mb-8">
+                <div className="w-12 h-12 rounded-xl bg-racing-blue/10 border border-racing-blue/20 flex items-center justify-center">
+                  <Shield size={24} className="fill-current" />
+                </div>
+                <span className="font-display font-black uppercase tracking-[0.4em] text-xs">Ceramic Layering Tech</span>
+              </div>
 
-          </motion.div>
+              <h2 className="font-display font-black text-5xl md:text-8xl italic uppercase leading-[0.85] mb-8 text-white">
+                THE <span className="text-racing-blue">CERAMIC</span> <br />
+                <span className="text-neon-green">SHIELD</span>
+              </h2>
+
+              <p className="text-white/70 text-lg md:text-xl leading-relaxed mb-12 font-medium">
+                Our state-of-the-art ceramic layering technology creates a microscopic bond with your vehicle's paint, providing an impenetrable barrier against UV rays, dirt, and the toughest Louisiana grime.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+                {[
+                  { icon: <Droplets className="text-racing-blue" />, title: "Hydrophobic", desc: "Water beads off instantly" },
+                  { icon: <Sparkles className="text-neon-green" />, title: "Deep Gloss", desc: "Showroom mirror finish" },
+                  { icon: <Wind className="text-racing-blue" />, title: "UV Protection", desc: "Prevents paint fading" },
+                  { icon: <Shield className="text-neon-green" />, title: "Hardness", desc: "Resists minor scratches" }
+                ].map((item, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + (i * 0.1) }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-display font-black uppercase text-sm tracking-widest text-white">{item.title}</h4>
+                      <p className="text-xs text-white/40 font-bold uppercase mt-1 leading-tight max-w-[120px]">{item.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+                className="mt-16"
+              >
+                <Link to="/contact">
+                  <button className="btn-glint bg-racing-blue text-white px-10 py-5 rounded-2xl font-display font-black uppercase tracking-widest shadow-xl shadow-racing-blue/40 flex items-center gap-4 group w-full sm:w-auto justify-center">
+                    Protect Your Ride
+                    <ArrowRight className="group-hover:translate-x-2 transition-transform" />
+                  </button>
+                </Link>
+              </motion.div>
+
+            </motion.div>
+          </div>
+
+          {/* Desktop-Only Image Column - Hidden on Mobile */}
+          <div className="hidden md:block absolute right-0 top-0 bottom-0 w-1/2">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="w-full h-full relative border-l border-white/10"
+            >
+              {/* Aesthetic Glint Overlay for the split boundary */}
+              <div className="absolute inset-0 z-10 box-border border-y border-transparent transition-all duration-1000 group hover:border-white/20">
+                <div className="absolute top-0 right-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-700" />
+              </div>
+
+              <img
+                src="/Images/CeramicGlossRedesign.png"
+                alt="Premium Ceramic Gloss"
+                className="w-full h-full object-cover"
+              />
+
+              {/* Fade gradient to blend image into black background on desktop */}
+              <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent pointer-events-none" />
+
+            </motion.div>
+          </div>
+
         </div>
       </div>
 
