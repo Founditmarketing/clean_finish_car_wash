@@ -495,6 +495,7 @@ export const CeramicShield = () => {
     <section className="relative min-h-[90vh] flex items-center bg-black overflow-hidden py-20 md:py-32">
       {/* Cinematic Background Image */}
       <div className="absolute inset-0 z-0 btn-glint">
+        <div className="absolute inset-0 bg-black/60 md:bg-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 z-10" />
         <img
@@ -519,7 +520,7 @@ export const CeramicShield = () => {
               <span className="font-display font-black uppercase tracking-[0.4em] text-xs">Ceramic Layering Tech</span>
             </div>
 
-            <h2 className="font-display font-black text-5xl md:text-7xl lg:text-8xl italic uppercase leading-[0.85] mb-8 text-white">
+            <h2 className="font-display font-black text-5xl md:text-8xl italic uppercase leading-[0.85] mb-8 text-white">
               THE <span className="text-racing-blue">CERAMIC</span> <br />
               <span className="text-neon-green">SHIELD</span>
             </h2>
