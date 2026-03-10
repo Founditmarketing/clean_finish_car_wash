@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link, useLocation } from 'react-router-dom';
 import { Trophy, Zap, Shield, MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import siteLogo from '../assets/logo.png';
 
 export const Navbar = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto glass rounded-full px-8 py-3 flex items-center justify-between border border-white/10 shadow-[0_0_20px_rgba(0,102,255,0.1)]">
         <Link to="/" className="flex items-center">
           <img
-            src="/cleanfinishcarwash_logo3white_shadow-1920w-1920w.png"
+            src={siteLogo}
             alt="Clean Finish Car Wash Logo"
             className="h-10 md:h-12 object-contain drop-shadow-lg"
           />
@@ -55,7 +56,7 @@ export const Navbar = () => {
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-black pt-20 pb-10 overflow-hidden border-t-4 border-transparent bg-gradient-to-r from-racing-blue via-neon-green to-racing-blue [border-image:linear-gradient(to_right,#0066ff,#39ff14,#0066ff)_1]">
+    <footer className="relative bg-black pt-20 pb-10 overflow-hidden border-t-4 border-transparent [border-image:linear-gradient(to_right,#0066ff,#39ff14,#0066ff)_1]">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#0066ff15_1px,transparent_1px),linear-gradient(to_bottom,#39ff1415_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_80%)]">
         <motion.div
           className="w-full h-full bg-[linear-gradient(to_right,#0066ff15_1px,transparent_1px),linear-gradient(to_bottom,#39ff1415_1px,transparent_1px)] bg-[size:40px_40px]"
@@ -67,7 +68,7 @@ export const Footer = () => {
         <div className="space-y-6">
           <Link to="/" className="flex items-center">
             <img
-              src="/cleanfinishcarwash_logo3white_shadow-1920w-1920w.png"
+              src={siteLogo}
               alt="Clean Finish Car Wash Logo"
               className="h-12 object-contain drop-shadow-lg"
             />
