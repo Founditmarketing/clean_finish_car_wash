@@ -198,7 +198,7 @@ export const MiniPitStop = () => {
 };
 
 export const WashProducts = () => {
-  const [activeId, setActiveId] = React.useState<number | null>(null);
+  const [hoveredId, setHoveredId] = React.useState<number | null>(null);
 
   const products = [
     {
@@ -232,88 +232,106 @@ export const WashProducts = () => {
   ];
 
   return (
-    <section className="py-24 bg-black overflow-hidden">
+    <section className="py-24 bg-black overflow-hidden select-none">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-12">
+        <div className="mb-16">
           <h2 className="font-display font-black text-4xl md:text-6xl italic uppercase tracking-tighter text-white">
             WASH <span className="text-racing-blue">PRODUCTS</span>
           </h2>
           <p className="text-white/50 font-bold uppercase tracking-widest mt-2">The fuel for your vehicle's shine.</p>
         </div>
 
-        <div className="relative h-[450px] flex gap-4">
-          {products.map((product) => {
-            const isActive = activeId === product.id;
-            return (
-              <motion.div
-                key={product.id}
-                onMouseEnter={() => setActiveId(product.id)}
-                onMouseLeave={() => setActiveId(null)}
-                layout
-                initial={false}
-                animate={{
-                  width: isActive ? '100%' : '25%',
-                  x: isActive ? (product.id === 1 ? 0 : product.id === 2 ? -312 : product.id === 3 ? -624 : -936) : 0,
-                  zIndex: isActive ? 50 : 10
-                }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className={`relative h-full rounded-3xl overflow-hidden border-2 cursor-pointer transition-colors duration-300 ${isActive ? 'border-neon-green bg-black/40' : 'border-white/10 hover:border-racing-blue bg-white/5'
-                  }`}
-              >
-                {/* Background Image / Product Image Area */}
-                <div className={`absolute inset-0 z-0 transition-all duration-500 ${isActive ? 'opacity-20' : 'opacity-60'}`}>
-                  <img src={product.image} className="w-full h-full object-contain p-8" alt={product.name} />
-                  <div className="absolute inset-0 bg-black/20" />
-                </div>
+        <div className="relative h-[450px]">
+          {/* Base Layout: All products in a row */}
+          <div className="flex justify-between items-center h-full px-12">
+            {products.map((product, idx) => {
+              const isActive = hoveredId === product.id;
 
-                {/* Content */}
-                <div className="relative z-10 p-8 h-full flex flex-col justify-end">
-                  <div className={`transition-all duration-500 ${isActive ? 'mb-0' : 'mb-4'}`}>
-                    <h3 className="font-display font-black text-2xl uppercase italic text-white">{product.name}</h3>
-                  </div>
+              return (
+                <div
+                  key={product.id}
+                  className="relative group "
+                  onMouseEnter={() => setHoveredId(product.id)}
+                >
+                  {/* Product Icon (Idle) */}
+                  <motion.div
+                    animate={{
+                      opacity: hoveredId !== null && !isActive ? 0 : 1,
+                      scale: isActive ? 1.1 : 1,
+                      x: isActive ? -(idx * 280) : 0, // Slide to left logic
+                      zIndex: isActive ? 50 : 10
+                    }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="relative w-48 h-64 flex flex-col items-center justify-center pointer-events-auto"
+                  >
+                    <img
+                      src={product.image}
+                      className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-transform group-hover:drop-shadow-[0_0_40px_rgba(0,102,255,0.3)]"
+                      alt={product.name}
+                    />
 
-                  {/* Small Description (only visible when NOT active) */}
-                  {!isActive && (
-                    <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="text-[10px] font-bold uppercase tracking-wider text-white/60 line-clamp-2"
-                    >
-                      {product.description}
-                    </motion.p>
-                  )}
-
-                  {/* Expanded Card Content */}
-                  {isActive && (
-                    <motion.div
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="max-w-3xl"
-                    >
-                      <p className="text-xl font-medium text-white/90 leading-relaxed mb-8">
-                        {product.longDesc}
+                    {/* Fixed Label Below Icon (Idle) */}
+                    <div className="mt-4 text-center">
+                      <p className="font-display font-black text-xs uppercase italic tracking-tighter text-white/40 group-hover:text-racing-blue transition-colors">
+                        {product.name}
                       </p>
-                      <div className="flex gap-4">
-                        <div className="px-6 py-2 bg-neon-green text-black rounded-full text-xs font-black uppercase tracking-widest">
-                          Premium Add-on
-                        </div>
-                        <div className="px-6 py-2 bg-racing-blue text-white rounded-full text-xs font-black uppercase tracking-widest">
-                          High Performance
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
+                    </div>
+                  </motion.div>
                 </div>
+              );
+            })}
+          </div>
 
-                {/* Vertical Text when compact */}
-                {!isActive && (
-                  <div className="absolute top-12 left-6 origin-top-left rotate-[90deg] whitespace-nowrap opacity-10">
-                    <span className="font-display font-black text-5xl uppercase italic text-white">{product.name}</span>
+          {/* Expansion Card Overlay */}
+          <AnimatePresence>
+            {hoveredId && (
+              <motion.div
+                initial={{ opacity: 0, width: 0 }}
+                animate={{ opacity: 1, width: '100%' }}
+                exit={{ opacity: 0, width: 0 }}
+                transition={{ type: "tween", duration: 0.4, ease: "circOut" }}
+                className="absolute inset-0 bg-neutral-900 z-40 rounded-[40px] border border-white/10 shadow-2xl flex items-center justify-end overflow-hidden"
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                {/* Content Area */}
+                <motion.div
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="w-full max-w-[65%] pl-12 pr-12 text-left"
+                >
+                  <div className="mb-2">
+                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-racing-blue">Premium Product</span>
+                    <h3 className="font-display font-black text-4xl md:text-5xl uppercase italic text-white mb-6">
+                      {products.find(p => p.id === hoveredId)?.name}
+                    </h3>
                   </div>
-                )}
+
+                  <p className="text-xl text-white/80 leading-relaxed font-medium mb-10">
+                    {products.find(p => p.id === hoveredId)?.longDesc}
+                  </p>
+
+                  <div className="flex gap-4">
+                    <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl">
+                      <p className="text-[10px] font-black uppercase text-white/40 mb-1">Benefit</p>
+                      <p className="text-xs font-bold text-white uppercase tracking-widest leading-none">High Gloss Shine</p>
+                    </div>
+                    <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl">
+                      <p className="text-[10px] font-black uppercase text-white/40 mb-1">Protection</p>
+                      <p className="text-xs font-bold text-white uppercase tracking-widest leading-none">30-Day Layer</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Close/Interaction hint */}
+                <div className="absolute top-10 right-10">
+                  <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/20 text-[10px]">
+                    ESC
+                  </div>
+                </div>
               </motion.div>
-            );
-          })}
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>
