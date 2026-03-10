@@ -432,65 +432,99 @@ export const WashMenu = () => {
 
 export const CeramicShield = () => {
   return (
-    <section className="py-32 bg-deep-black relative overflow-hidden border-y border-white/5">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-racing-blue/5 blur-[150px] rounded-full" />
-      <div className="absolute bottom-0 left-0 w-1/2 h-full bg-neon-green/5 blur-[150px] rounded-full" />
+    <section className="relative min-h-[90vh] flex items-center bg-black overflow-hidden py-32">
+      {/* Cinematic Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/20 z-10" />
+        <img
+          src="/Images/CeramicGlossRedesign.png"
+          alt="Premium Ceramic Gloss"
+          className="w-full h-full object-cover opacity-80"
+        />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex items-center gap-3 text-racing-blue mb-6">
-            <Shield size={32} className="fill-current" />
-            <span className="font-display font-black uppercase tracking-[0.4em] text-sm">Ceramic Layering Tech</span>
-          </div>
-          <h2 className="font-display font-black text-5xl md:text-7xl italic uppercase leading-none mb-8">
-            THE <span className="text-racing-blue">CERAMIC</span> <br />
-            <span className="text-neon-green">SHIELD</span>
-          </h2>
-          <p className="text-white/70 text-lg leading-relaxed mb-10">
-            Our state-of-the-art ceramic layering technology creates a microscopic bond with your vehicle's paint, providing an impenetrable barrier against UV rays, dirt, and Louisiana's toughest grime.
-          </p>
-
-          <div className="grid grid-cols-2 gap-6">
-            {[
-              { icon: <Droplets className="text-racing-blue" />, title: "Hydrophobic", desc: "Water beads off instantly" },
-              { icon: <Sparkles className="text-neon-green" />, title: "Deep Gloss", desc: "Showroom mirror finish" },
-              { icon: <Wind className="text-racing-blue" />, title: "UV Protection", desc: "Prevents paint fading" },
-              { icon: <Shield className="text-neon-green" />, title: "Hardness", desc: "Resists minor scratches" }
-            ].map((item, i) => (
-              <div key={i} className="space-y-2">
-                <div>{item.icon}</div>
-                <h4 className="font-display font-black uppercase text-xs tracking-widest">{item.title}</h4>
-                <p className="text-[10px] text-white/40 font-bold uppercase">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <div className="relative">
+      <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
+        <div className="max-w-2xl">
           <motion.div
-            animate={{
-              rotate: [0, 5, 0, -5, 0],
-              y: [0, -20, 0]
-            }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative z-10"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <img
-              src="/Images/Clean Finish.jpg"
-              alt="Shiny Car"
-              className="rounded-3xl shadow-2xl shadow-racing-blue/20 border-2 border-racing-blue"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-racing-blue/20 to-neon-green/20 rounded-3xl" />
+            <div className="flex items-center gap-3 text-racing-blue mb-8">
+              <div className="w-12 h-12 rounded-xl bg-racing-blue/10 border border-racing-blue/20 flex items-center justify-center">
+                <Shield size={24} className="fill-current" />
+              </div>
+              <span className="font-display font-black uppercase tracking-[0.4em] text-xs">Ceramic Layering Tech</span>
+            </div>
+
+            <h2 className="font-display font-black text-6xl md:text-8xl italic uppercase leading-[0.85] mb-8 text-white">
+              THE <span className="text-racing-blue">CERAMIC</span> <br />
+              <span className="text-neon-green">SHIELD</span>
+            </h2>
+
+            <p className="text-white/70 text-xl leading-relaxed mb-12 font-medium">
+              Our state-of-the-art ceramic layering technology creates a microscopic bond with your vehicle's paint, providing an impenetrable barrier against UV rays, dirt, and the toughest Louisiana grime.
+            </p>
+
+            <div className="grid grid-cols-2 gap-x-12 gap-y-10">
+              {[
+                { icon: <Droplets className="text-racing-blue" />, title: "Hydrophobic", desc: "Water beads off instantly" },
+                { icon: <Sparkles className="text-neon-green" />, title: "Deep Gloss", desc: "Showroom mirror finish" },
+                { icon: <Wind className="text-racing-blue" />, title: "UV Protection", desc: "Prevents paint fading" },
+                { icon: <Shield className="text-neon-green" />, title: "Hardness", desc: "Resists minor scratches" }
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + (i * 0.1) }}
+                  className="space-y-3"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-display font-black uppercase text-sm tracking-widest text-white">{item.title}</h4>
+                    <p className="text-[11px] text-white/40 font-bold uppercase mt-1">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="mt-16 flex items-center gap-8">
+              <div className="flex -space-x-4">
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} className="w-12 h-12 rounded-full border-4 border-black bg-neutral-800 overflow-hidden">
+                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" />
+                  </div>
+                ))}
+              </div>
+              <div>
+                <p className="text-white font-bold text-sm">Join 2,500+ Monthly Members</p>
+                <p className="text-white/40 text-xs font-bold uppercase tracking-widest">Louisiana's Most Trusted Shield</p>
+              </div>
+            </div>
           </motion.div>
-          {/* Glowing Ring */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/10 rounded-full blur-xl animate-pulse" />
         </div>
       </div>
+
+      {/* Dynamic Light Sweep */}
+      <motion.div
+        animate={{
+          x: ['-100%', '200%'],
+          opacity: [0, 0.3, 0]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          repeatDelay: 2
+        }}
+        className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+      />
     </section>
   );
 };
