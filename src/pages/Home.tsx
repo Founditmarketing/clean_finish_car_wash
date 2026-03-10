@@ -205,31 +205,29 @@ export const WashProducts = () => {
       id: 1,
       name: "Ceramic Shine",
       image: "/Products/Ceramic Shine.png",
-      description: "Advanced nanotech for a deep, reflective mirror finish.",
       longDesc: "Ceramic Shine creates a chemical bond with your clear coat, providing 30 days of extreme hydrophobic protection and a high-gloss brilliance that lasts. It repels water, dust, and UV rays, ensuring your car stays cleaner for longer between washes."
     },
     {
       id: 2,
       name: "Extreme Gloss Lava",
       image: "/Products/Extreme Gloss Lava Polish.png",
-      description: "Infused with lava-like conditioners for maximum surface depth.",
       longDesc: "This premium lava-infused polish penetrates deep into the clear coat layers to nourish the paint and provide a warm, rich glow. It's the ultimate treatment for restoring the showroom-quality depth and vibrant color to any vehicle finish."
     },
     {
       id: 3,
       name: "Ceramic Gloss",
       image: "/Products/Geramic Gloss.png",
-      description: "A hybrid layering agent that bridges the gap between wax and ceramic.",
       longDesc: "Ceramic Gloss is our specialized hybrid treatment that combines the ease of a spray polish with the durability of a ceramic coating. It delivers an immediate 'pop' in shine while building a resilient layer of protection against environmental contaminants."
     },
     {
       id: 4,
       name: "Quartz Power",
       image: "/Products/Quartz.png",
-      description: "Mineral-rich sealant that hardens into a glass-like shell.",
       longDesc: "Infused with silica quartz, this sealant hardens into a durable, glass-like shell over your vehicle. It's designed for drivers who want the highest level of resistance against light surface scratches and the most intense water-beading performance available today."
     }
   ];
+
+  const activeProduct = products.find(p => p.id === hoveredId);
 
   return (
     <section className="py-24 bg-black overflow-hidden select-none">
@@ -241,92 +239,99 @@ export const WashProducts = () => {
           <p className="text-white/50 font-bold uppercase tracking-widest mt-2">Precision chemicals for a podium finish.</p>
         </div>
 
-        <div className="relative h-[500px] flex items-center">
-          {/* Base Row of Icons */}
-          <div className="w-full flex justify-between items-center px-4 relative z-10">
-            {products.map((product, idx) => {
-              const isActive = hoveredId === product.id;
-
-              return (
-                <div
+        <div className="relative h-[600px] flex items-center justify-center">
+          {/* Base Row: Icons when nothing is hovered */}
+          {!hoveredId && (
+            <div className="w-full flex justify-between items-center px-4">
+              {products.map((product) => (
+                <motion.div
                   key={product.id}
-                  className="relative flex flex-col items-center"
+                  layoutId={`product-icon-${product.id}`}
                   onMouseEnter={() => setHoveredId(product.id)}
+                  className="relative w-48 h-64 md:w-64 md:h-80 cursor-pointer flex items-center justify-center"
                 >
+                  <img
+                    src={product.image}
+                    className="w-full h-full object-contain filter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+                    alt={product.name}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
+
+          {/* Expansion Card Overlay */}
+          <AnimatePresence>
+            {hoveredId && activeProduct && (
+              <motion.div
+                layoutId="expansion-card"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                className="absolute inset-0 bg-neutral-900 z-50 rounded-[4rem] border-2 border-white/10 shadow-[0_0_100px_rgba(0,0,0,0.8)] flex items-center overflow-hidden"
+                onMouseLeave={() => setHoveredId(null)}
+              >
+                {/* Left Side: Product Icon (Centered) */}
+                <div className="w-[40%] h-full flex items-center justify-center border-r border-white/5 bg-black/20">
                   <motion.div
-                    animate={{
-                      opacity: hoveredId !== null && !isActive ? 0 : 1,
-                      scale: isActive ? 1.1 : 1,
-                      x: isActive ? -(idx * 280) : 0,
-                      zIndex: isActive ? 60 : 10
-                    }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="relative w-64 h-80 flex items-center justify-center cursor-pointer pointer-events-auto"
+                    layoutId={`product-icon-${activeProduct.id}`}
+                    className="w-72 h-96 md:w-96 md:h-[450px]"
                   >
                     <img
-                      src={product.image}
-                      className="w-full h-full object-contain filter drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-105"
-                      alt={product.name}
+                      src={activeProduct.image}
+                      className="w-full h-full object-contain filter drop-shadow-[0_20px_50px_rgba(0,102,255,0.2)]"
+                      alt={activeProduct.name}
                     />
                   </motion.div>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* Distinct Expansion Card */}
-          <AnimatePresence>
-            {hoveredId && (
-              <motion.div
-                initial={{ opacity: 0, x: 100, scaleX: 0 }}
-                animate={{ opacity: 1, x: 0, scaleX: 1 }}
-                exit={{ opacity: 0, x: 100, scaleX: 0 }}
-                transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                style={{ originX: 0 }}
-                className="absolute inset-0 bg-neutral-900 z-50 rounded-[3rem] border-2 border-white/10 shadow-2xl flex items-center justify-end overflow-hidden"
-                onMouseLeave={() => setHoveredId(null)}
-              >
-                {/* Visual Accent */}
-                <div className="absolute top-0 left-0 w-2 h-full bg-racing-blue" />
-
-                {/* Text Content */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.15 }}
-                  className="w-full max-w-[60%] pr-16 text-left"
-                >
-                  <div className="mb-4">
-                    <span className="text-[10px] font-black uppercase tracking-[0.4em] text-racing-blue mb-2 block">Performance Tier</span>
-                    <h3 className="font-display font-black text-5xl uppercase italic text-white leading-none">
-                      {products.find(p => p.id === hoveredId)?.name}
+                {/* Right Side: Content */}
+                <div className="flex-1 p-12 md:p-20 flex flex-col justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <span className="text-xs font-black uppercase tracking-[0.4em] text-racing-blue mb-4 block">Advanced Formula</span>
+                    <h3 className="font-display font-black text-5xl md:text-7xl uppercase italic text-white leading-[0.9] mb-8">
+                      {activeProduct.name.split(' ').map((word, i) => (
+                        <span key={i} className={i === 1 ? 'text-racing-blue block' : 'block'}>{word}</span>
+                      ))}
                     </h3>
-                  </div>
 
-                  <p className="text-xl text-white/70 leading-relaxed font-medium mb-10 max-w-xl">
-                    {products.find(p => p.id === hoveredId)?.longDesc}
-                  </p>
+                    <p className="text-xl text-white/50 leading-relaxed font-medium mb-12 max-w-xl">
+                      {activeProduct.longDesc}
+                    </p>
 
-                  <div className="flex gap-6">
-                    <div className="flex flex-col gap-1">
-                      <p className="text-[9px] font-black uppercase tracking-widest text-white/30">Durability</p>
-                      <div className="flex gap-1">
-                        {[1, 2, 3, 4, 5].map(i => <div key={i} className={`w-6 h-1 rounded-full ${i <= 4 ? 'bg-racing-blue' : 'bg-white/10'}`} />)}
+                    <div className="flex flex-wrap gap-8">
+                      <div className="flex flex-col gap-3">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Durability Rating</p>
+                        <div className="flex gap-2">
+                          {[1, 2, 3, 4, 5].map(i => <div key={i} className={`h-1.5 w-12 rounded-full ${i <= 4 ? 'bg-racing-blue' : 'bg-white/10'}`} />)}
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">Surface Tension</p>
+                        <div className="flex gap-2">
+                          {[1, 2, 3, 4, 5].map(i => <div key={i} className="h-1.5 w-12 rounded-full bg-neon-green" />)}
+                        </div>
                       </div>
                     </div>
-                    <div className="flex flex-col gap-1">
-                      <p className="text-[9px] font-black uppercase tracking-widest text-white/30">Shine factor</p>
-                      <div className="flex gap-1">
-                        {[1, 2, 3, 4, 5].map(i => <div key={i} className="w-6 h-1 rounded-full bg-neon-green" />)}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
 
-                {/* Status Indicator */}
-                <div className="absolute bottom-10 right-10 flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-neon-green animate-pulse" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-white/40">Active Formula</span>
+                {/* Status indicator */}
+                <div className="absolute top-12 right-12 flex items-center gap-4">
+                  <div className="px-4 py-2 bg-racing-blue/10 border border-racing-blue/20 rounded-full">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-racing-blue">Active Formula</span>
+                  </div>
+                  <button
+                    onClick={() => setHoveredId(null)}
+                    className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors"
+                  >
+                    <div className="w-4 h-0.5 bg-white rotate-45 absolute" />
+                    <div className="w-4 h-0.5 bg-white -rotate-45 absolute" />
+                  </button>
                 </div>
               </motion.div>
             )}
