@@ -258,23 +258,18 @@ export const WashProducts = () => {
                     animate={{
                       opacity: hoveredId !== null && !isActive ? 0 : 1,
                       scale: isActive ? 1.2 : 1,
-                      x: isActive ? -(idx * 320) : 0, // Slide to left logic - adjusted for larger icons
+                      x: isActive ? -(idx * 320) : 0,
                       zIndex: isActive ? 50 : 10
                     }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     className="relative w-64 h-96 flex flex-col items-center justify-center pointer-events-auto"
                   >
-                    <img
-                      src={product.image}
-                      className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-transform group-hover:drop-shadow-[0_0_40px_rgba(0,102,255,0.3)]"
-                      alt={product.name}
-                    />
-
-                    {/* Fixed Label Below Icon (Idle) */}
-                    <div className="mt-4 text-center">
-                      <p className="font-display font-black text-xs uppercase italic tracking-tighter text-white/40 group-hover:text-racing-blue transition-colors">
-                        {product.name}
-                      </p>
+                    <div className="w-full h-full p-6 border-2 border-white/10 rounded-[3rem] bg-white/5 transition-colors group-hover:border-white/30 overflow-hidden">
+                      <img
+                        src={product.image}
+                        className="w-full h-full object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-transform group-hover:drop-shadow-[0_0_40px_rgba(0,102,255,0.3)]"
+                        alt={product.name}
+                      />
                     </div>
                   </motion.div>
                 </div>
